@@ -11667,7 +11667,7 @@ local msg_id = msg.id_/2097152/0.5
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'الـمـطـور', url="http://t.me/"..sudos.UserName}},
-{{text = 'اضف البوت لمجمعتك', url="https://t.me/S_a1_bot?startgroup=new"}},  
+{{text = 'اضف البوت لمجموعاتك', url="https://t.me/S_a1_bot?startgroup=new"}},  
 } 
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
@@ -13827,7 +13827,7 @@ local List = {
 🇪🇬 ꙰  - 𝚞 𝚜𝚎 𝚛 ➟ #username  ❃.
 🇪🇬 ꙰  - 𝚖 𝚜𝚐 𝚜 ➟ #msgs ❃.
 🇪🇬 ꙰  - 𝚐 𝚖 𝚊𝚜  ➟ #stast ❃.
-🇪🇬 ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ #id ❃.
+🇪?? ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ #id ❃.
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 ꙰  - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
