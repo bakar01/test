@@ -45,7 +45,7 @@ database:set(id_server..":SUDO:ID",SUDOID)
 else
 print('\27[0;31m≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫ ┉ ┉\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
+io.write('\27[1;31m  ↓ ارسل معرف البوت :\n SEND ID FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
@@ -139,7 +139,7 @@ print([[
  | _|  | | | '  \  | || | (_-< | | | | | '  \ 
  |___| |_| |_|_|_|  \_,_| /__/ |_| |_| |_|_|_|                         
 > CH › @UU_SD1
-~> DEVELOPER › @B_l_A_1 
+~> DEVELOPER › @M_S_U 
 ]])
 sudos = dofile("./Bkar.lua") 
 SUDO = tonumber(sudos.SUDO)
@@ -152,7 +152,7 @@ io.popen("mkdir File_Bot")
 io.popen("cd File_Bot && rm -rf commands.lua.1") 
 io.popen("cd File_Bot && rm -rf commands.lua.2") 
 io.popen("cd File_Bot && rm -rf commands.lua.3") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/bakar01/test/main/File_Bot/commands.lua") 
+io.popen("cd File_Bot && wget https://raw.githubusercontent.com/bakar01/bakar01-/main/File_Bot/commands.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -166,7 +166,7 @@ function vardump(value)
 print(serpent.block(value, {comment=false}))   
 end
 
-sudo_users = {SUDO,1706080513,1809061014}   
+sudo_users = {SUDO,1706080513}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -258,8 +258,6 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_d) == tonumber(1706080513) then  
 var = true  
-elseif tonumber(user_d) == tonumber(1809061014) then  
-var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then
@@ -294,8 +292,8 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1706080513) then  
 var = 'المعدل'
-elseif tonumber(user_id) == tonumber(1809061014) then  
-var = 'المعدل'
+elseif tonumber(user_id) == tonumber(1180682052) then  
+var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then
@@ -859,20 +857,75 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == 'العوده' then  
+if not DevSoFi(msg) then
+if text == '/start' or text == 'العوده🌛'  then  
+local bl = '●انت الان العضو في البوت \n● سورس بكار\n ●يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/UU_SD1)'
+local keyboard = {
+{'❨ M U S L I M 🌝 ❩'},
+{'قـسم الالـعـاب'},
+{'قـسم ممـيزات'},
+}
+send_inline_key(msg.chat_id_,bl,keyboard)
+end
+if text == 'قـسم الالـعـاب' then
+local Text = 'مرحب بيك في قسم الالعاب'
+local Key = {
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'مطور','انا مين'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'انصحنى','كتبات'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'صراحه','تويت'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'حروف','لو خيروك','نكته'},
+{'العوده🌛'},
+}
+send_inline_key(msg.chat_id_,Text,Key)
+end 
+if text == 'قـسم ممـيزات' then
+local Text = 'مميزات خاصه بي الي متفل في بوتو اغاني فقط'
+local Key = {
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'اغاني','مميزات'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'الافلام','العاب'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'قران','روايات'},
+{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
+{'ثيم','استوري'},
+{'العوده🌛'},
+}
+send_inline_key(msg.chat_id_,Text,Key)
+end 
+
+if text == '❨ M U S L I M 🌝 ❩' then
+local Text = 'قسم مطورين السورس لدخول الي حسابتهم'
+local Key = {
+{'⟮قناه الاستوري⟯'},
+{'قناة السورس'},
+{'العوده🌛'},
+}
+send_inline_key(msg.chat_id_,Text,Key)
+end 
+
+end
+end
+--------------------------------------------------------------------------------------------------------------
+if Chat_Type == 'UserBot' then
+if text == '/start' or text == 'العوده🌛' then  
 if AddChannel(msg.sender_user_id_) == false then
-local UU_SD1 = database:get(bot_id..'text:ch:user')
-if UU_SD1 then
-send(msg.chat_id_, msg.id_,'['..UU_SD1..']')
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🌝 لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  🌝 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ⋆لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n ⋆اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if DevSoFi(msg) then
-local bl = 'انت الان المطور الاساسي في البوت \n سورس بكار\n يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/UU_SD1)'
+local bl = '●انت الان المطور الاساسي في البوت \n● سورس بكار\n ●يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/UU_SD1)'
 local keyboard = {
-{'المبرمج مسلم'},
+{'المبرمج مسلم','مطور السورس'},
 {'ضع اسم للبوت','الاحصائيات'},
 {'اوامر المطورين'},
 {'اوامر التفعيل','اوامر التعطيل'},
@@ -884,39 +937,7 @@ local keyboard = {
 {'معلومات السيرفر','الغاء'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-SourceDRAGONr = start
-else
-SourceDRAGONr = '🦂اهلا عزيزي\n🦂انا بوت اسمي بكار\n🦂اختصاصي حمايه الجروبات\n🦂من تكرار والسبام والتوجيه والخ…\n🦂لتفعيلي اتبع الاخطوات…↓\n🦂اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع ⤌{ منشئ او المشرفين } بتفعيل فقط\n[🦂معرف المطور '
-end 
-send(msg.chat_id_, msg.id_, SourceDRAGONr) 
 end
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-keyboard = start
-else
-keyboard = {
-{'❨ M U S L I M 🌝 ❩'},
-{'قناة السورس','رتبتي'},
-{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
-{'صراحه','تويت','نكته'},
-{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
-{'بوستات','باد'},
-{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
-{'انصحنى','عقاب'},
-{'≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫'},
-{'مطور','انا مين'},
-}
-end
-send_inline_key(msg.chat_id_, msg.id_, keyboard) 
-end
-end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
-return false
 end
 if text == 'اوامر الاذاعه' then  
 local bl = 'مرحبا بك في اوامر الاذاعه..💘🙂'
@@ -1004,13 +1025,13 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
-send(msg.sender_user_id_, msg.id_,' 🌝 تم ارسال رسالتك\n 🌝 سيتم رد في اقرب وقت')
+send(msg.sender_user_id_, msg.id_,' ⋆تم ارسال رسالتك\n ⋆سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,ta) 
 vardump(data)
 if data and data.messages_[0].content_.sticker_ then
 local Name = '['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')'
-local Text = ' 🌝 تم ارسال الملصق من ↓\n - '..Name
+local Text = ' ⋆تم ارسال الملصق من ↓\n - '..Name
 sendText(SUDO,Text,0,'md')
 end 
 end,nil) 
@@ -1144,7 +1165,7 @@ end
 
 if text == 'تحديث السورس' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/bakar01/test/main/DRAGON.lua')
+os.execute('wget https://raw.githubusercontent.com/bakar01/bakar01-/main/DRAGON.lua')
 send(msg.chat_id_, msg.id_,'🦂 تم تحديث السورس')
 dofile('DRAGON.lua')  
 end
@@ -1193,23 +1214,35 @@ if text == ("مسح المطورين الاساسين") and SudoBot(msg) then
 database:del(bot_id.."Dev:SoFi:2")
 send(msg.chat_id_, msg.id_, "\n🦂 تم مسح قائمة المطورين الاساسين  ")
 end
-if text == 'المطور' or text == 'مطور' then
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
- 
- local msg_id = msg.id_/2097152/0.5
-local Text = [[
-مطور البوت اهو ياروحي🌝💘
-]]
+
+if text == "المطور" or text == "مطور" then
+local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
+if TEXT_SUDO then 
+send(msg.chat_id_, msg.id_,TEXT_SUDO)
+else
+tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
+local function taha(extra, taha, success)
+if taha.photos_[0] then
+local Name = ' مطور البوت اهو ياروحي🌝💘  -\n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}},
-{{text = '[𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹]', url="t.me/UU_SD1"}}, 
+{
+{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}
+},
+{
+{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}
+},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Name)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+ end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, taha, nil)
 end,nil)
-
-
 end
+end
+
 if text == 'الاحصائيات' and DevSoFi(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
@@ -1957,7 +1990,7 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_," 🦂 تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
+send(msg.chat_id_, msg.id_," ?? تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
 database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
@@ -2841,7 +2874,7 @@ end
 return false
 end
 os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/bakar01/test/main/DRAGON.lua')
+os.execute('wget https://raw.githubusercontent.com/bakar01/bakar01-/main/DRAGON.lua')
 send(msg.chat_id_, msg.id_,' 🦂 تم تحديث السورس')
 dofile('DRAGON.lua')  
 end
@@ -3131,17 +3164,12 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '🦂 𝑬𝑳𝑴𝑼𝑺𝑳𝑰𝑴 🦂', url="t.me/M_S_U"}}, 
-{{text = '[𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹]', url="t.me/UU_SD1"}}, 
+{{text = '❨ 𝑬𝑳𝑴𝑼𝑺𝑳𝑰𝑴 🌝  ❩', url="t.me/M_S_U"},{text = '❨ 𝑯𝑨𝑴𝑶 🌝  ❩', url="t.me/HaMoO201"}},
+{{text = '❨ 𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹 ❩', url="t.me/UU_SD1"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == "توكن البوت" and SudoBot(msg) or text == 'التوكن' and SudoBot(msg) then 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' ..token) 
-send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص') 
 end
 
 if text == 'مين نصبلك' or text == 'عايزه بوت' or text == 'عايز بوت' then
@@ -3151,9 +3179,8 @@ local Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❨ 𝑬𝑳𝑴𝑼𝑺𝑳𝑰𝑴 🌝  ❩',url="t.me/M_S_U"}},
-{{text = '𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹', url="t.me/UU_SD1"}},
-{{text = 'تواصل السورس📮',url="t.me/UU_SD_bot"}}, 
+{{text = '❨ 𝑬𝑳𝑴𝑼𝑺??𝑰𝑴 🌝  ❩', url="t.me/M_S_U"}, {text = '[𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹]', url="t.me/UU_SD1"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -3168,10 +3195,25 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  ❨ M U S L I M 🌝  ❩ ',url="t.me/M_S_U"}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
+if text == 'مطور السورس' then
+local Text = [[
+[المطور حمو](t.me/HaMoO201)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❨ 𝑯𝑨𝑴𝑶  ❩',url="t.me/HaMoO201"}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/HaMoO201&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 
 if text == 'قناه السورس' or text == 'قناة السورس' or text == '≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫' then
 local Text = [[
@@ -3182,7 +3224,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❨ 𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹 ❩', url="t.me/UU_SD1"}}, 
-{{text = '❨ تواصل السورس ❩',url="t.me/UU_SD_bot"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -3195,10 +3237,23 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❨ 𝗦𝗔𝗠𝗘𝗘𝗥 ❩',url="t.me/sameer_3ssam"}},
-{{text = '❨ بوت التواصل ❩',url="t.me/UU_SD_bot"}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/3&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if text == 'حمو' then
+local Text = [[
+[المطور حمو](t.me/HaMoO201)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '❨ 𝑯𝑨𝑴𝑶  ❩',url="t.me/HaMoO201"}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/HaMoO201&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'بوت يوتيوب' or text == 'يوتيوب' or text == 'قران' then
@@ -3208,10 +3263,9 @@ local Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❨ بوت اليوتيوب ❤️ ❩',url="t.me/M_S_U_1_bot"}},
-{{text = '❨ بوت تيك توك 🖤 ❩',url="t.me/K0XBOT"}},
-{{text = '❨ بوت انستقرام 💝 ❩',url="t.me/J33Bot"}},
-{{text = '❨ بوت قرآن 💙 ❩',url="t.me/quran_lbot"}},
+{{text = '❨ بوت اليوتيوب ❤️ ❩',url="t.me/M_S_U_1_bot"},{text = '❨ بوت تيك توك 🖤 ❩',url="t.me/K0XBOT"}},
+{{text = '❨ بوت انستقرام 💝 ❩',url="t.me/J33Bot"},{text = '❨ بوت قرآن 💙 ❩',url="t.me/quran_lbot"}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/7&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -4163,18 +4217,6 @@ keyboard.inline_keyboard = {
 }  
 local msg_id = msg.id_/2097152/0.5  
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == "استوري" and not  database:get(bot_id.."sing:for:me"..msg.chat_id_) then 
-ght = math.random(1,17); 
-local Text ='تم اختيار استوري ليك ياروحي 🌝💘' 
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{{text = '❨ M U S L I M 🌝  ❩',url="t.me/M_S_U"}}, 
-{{text = '❨ 𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹 ❩',url="t.me/UU_SD1"}}, 
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/g732a/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
 --------------------------------------------------------------------------------------------------------------
@@ -5291,7 +5333,7 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر البوت عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1809061014) then  
+if tonumber(result.sender_user_id_) == tonumber(1814776575) then  
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -5337,7 +5379,7 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
-if result.id_ == tonumber(1809061014) then
+if result.id_ == tonumber(1814776575) then
 send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
@@ -5377,7 +5419,7 @@ if tonumber(userid) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر البوت عام")
 return false 
 end
-if tonumber(userid) == tonumber(1809061014) then  
+if tonumber(userid) == tonumber(1814776575) then  
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -5418,7 +5460,7 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم البوت عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1809061014) then  
+if tonumber(result.sender_user_id_) == tonumber(1814776575) then  
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
@@ -5463,7 +5505,7 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
-if result.id_ == tonumber(1809061014) then
+if result.id_ == tonumber(1814776575) then
 send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم مبرمج السورس \n")
 return false 
 end
@@ -5503,12 +5545,12 @@ if tonumber(userid) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم البوت عام")
 return false 
 end
-if tonumber(userid) == tonumber(1809061014) then  
+if tonumber(userid) == tonumber(1814776575) then  
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
 if tonumber(userid) == tonumber(1706080513) then  
-send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مالك السورس عام")
+send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', userid)
@@ -5751,7 +5793,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevSoFi(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/bakar01/test/main/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/bakar01/bakar01-/main/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -5789,7 +5831,7 @@ t = " 🦂 الملف ⤌ "..file.."\n 🦂 تم تعطيل ملف \n"
 else
 t = " 🦂 بالتاكيد تم تعطيل ملف → "..file.."\n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/bakar01/test/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/bakar01/bakar01-/main/File_Bot/"..file)
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -5809,7 +5851,7 @@ t = " 🦂 بالتاكيد تم تفعيل ملف → "..file.." \n"
 else
 t = " 🦂 الملف ⤌ "..file.."\n 🦂 تم تفعيل ملف \n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/bakar01/test/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/bakar01/bakar01-/main/File_Bot/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
@@ -5977,9 +6019,9 @@ send(msg.chat_id_, msg.id_, '\n 🦂 تم مسح قائمه بكار')
 return false
 end
 
-if text == 'قائمه بكار' and Sudo(msg) then
+if text == 'قائمه المالك' and Sudo(msg) then
 local list = database:smembers(bot_id..'CoSu'..msg.chat_id_)
-t = "\n 🦂 قائمه بكار\n≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫\n"
+t = "\n قائمه المالك\n≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -8486,10 +8528,69 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
+if text == ("تاك للملوك") and Mod(msg) then
+local list = database:smembers(bot_id..'Tag:User'..msg.chat_id_)
+t = "\n•يا ملوك تعالو يردونكم 😹😭💞 . \n≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t.."*︙"..k.."︙> [@"..username.."]•\n*"
+else
+end
+end
+if #list == 0 then
+t = "•لايوجد ملوك😹😔💞"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+---------
+if text == ("رفع ملك") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'💘\n• لايمكنك استخدام البوت •\n• عليك الاشتراك في القناة •\n• اشترك اولا ['..database:get(bot_id..'add:ch:username')..'•]')
+end
+return false
+end
+function start_function(extra, result, success)
+database:sadd(bot_id..'Tag:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n•هو ملك ميحتاج ارفعه 🤴🏻💞'
+local  statuss  = ''
+send(msg.chat_id_, msg.id_, usertext..statuss)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
+
+if (text == ("تنزيل ملك")) and msg.reply_to_message_id_ and Mod(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'💘\n• لايمكنك استخدام البوت •\n• عليك الاشتراك في القناة •\n• اشترك اولا ['..database:get(bot_id..'add:ch:username')..'•]')
+end
+return false
+end
+function start_function(extra, result, success)
+database:srem(bot_id..'Tag:User'..msg.chat_id_, result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n•الملك ماينزل من مكانه 🤴🏻💞'
+status  = ''
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false
+end
 -----------------------------------------------------
-if text == 'مسح ابني' and Mod(msg) then
+if text == 'مسح ولادي' and Mod(msg) then
 database:del(bot_id..'Zahf:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' 🦂 تم تنزيل جميع أولادي')
+send(msg.chat_id_, msg.id_, ' 💔 تم تنزيل جميع أولادي')
 end
 if text == ("تاك لولادي") and Mod(msg) then
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
@@ -8526,7 +8627,7 @@ function start_function(extra, result, success)
 database:sadd(bot_id..'Zahf:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n 🦂 العضو ← ['..data.first_name_..'](t.me/'..(data.username_ or 'textchuser')..')'
-local  statuss  = '\n 🦂 تم رفع ابني في الجروب\n'
+local  statuss  = '\n 🧑‍🍼 تم رفع ابني في الجروب\n'
 send(msg.chat_id_, msg.id_, usertext..statuss)
 end,nil)
 end
@@ -8548,7 +8649,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'Zahf:User'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n 🦂 العضو ← ['..data.first_name_..'](t.me/'..(data.username_ or 'textchuser')..')'
-status  = '\n 🦂 تم تنزيل ابني من الجروب\n'
+status  = '\n 💔 تم تنزيل ابني من الجروب\n'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -8700,7 +8801,7 @@ send(msg.chat_id_, msg.id_, ' 🦂 تم تنزيل جميع زواحف')
 end
 if text == ("تاك للرقاصات") and Mod(msg) then
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
-t = "\n 🦂 قائمة رقاصات الجروب \n≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫\n"
+t = "\n 🦂 قائمة رقاصات الجروب \n≪━━━━━━𝑩𝑨𝑲??𝑹━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -10703,22 +10804,32 @@ send(msg.chat_id_, msg.id_," ❌ تم تعطيل الرابط")
 return false end
 end
 
-if text == 'المطور' or text == 'مطور' then
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
- 
- local msg_id = msg.id_/2097152/0.5
-local Text = [[
-مطور البوت اهو ياروحي🌝💘
-]]
+if text == "المطور" or text == "مطور" then
+local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
+if TEXT_SUDO then 
+send(msg.chat_id_, msg.id_,TEXT_SUDO)
+else
+tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
+local function taha(extra, taha, success)
+if taha.photos_[0] then
+local Name = ' مطور البوت اهو ياروحي🌝💘  -\n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}},
-{{text = '[𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹]', url="t.me/UU_SD1"}}, 
+{
+{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}
+},
+{
+{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}
+},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Name)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+ end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, taha, nil)
 end,nil)
-
-
+end
 end
 ---------------------
 
@@ -10740,7 +10851,10 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta)
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_)) or database:get(bot_id.."Private:Group:Link"..msg.chat_id_) 
 if linkgpp.ok == true then 
 local Teext = '🌜'..ta.title_..'\n'..linkgpp.result 
-local inline = {{{text = ta.title_, url=linkgpp.result}},} 
+local inline = {
+{{text = ta.title_, url=linkgpp.result}},
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
+} 
 send_inline_key(msg.chat_id_,Teext,nil,inline,msg.id_/2097152/0.5) 
 else 
 send(msg.chat_id_, msg.id_,'🌜لا يوجد رابط ارسل ضع رابط') 
@@ -11627,6 +11741,28 @@ end
 return false
 end
 
+if msg.content_.ID == "MessageChatAddMembers" then 
+if msg.content_.members_[0].id_ == tonumber(bot_id) then 
+print("it is Bot")
+N = (database:get(bot_id.."Name:Bot") or "بكار")
+tdcli_function ({ID = "GetUser",user_id_ = bot_id,},function(arg,data) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = bot_id,offset_ = 0,limit_ = 1},function(extra,mahmoud,success) 
+if mahmoud.photos_[0] then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اضف البوت لمجموعتك', url="http://t.me/"..sudos.UserName.."?startgroup=new"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+local Texti = "٭ مرحبا انا بوت "..N.." \n↞ اختصاصي ادارة المجموعات من السبام والخ..\n↞ للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Texti)..'&photo='..mahmoud.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end,nil)
+end,nil)
+end
+end
+
 if text == ""..(database:get(bot_id..'Name:Bot') or 'بكار').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'بكار')
 local DRAGON_Msg = {
@@ -11665,10 +11801,7 @@ local DRAGON_Msg = {
 Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
 local msg_id = msg.id_/2097152/0.5  
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'الـمـطـور', url="http://t.me/"..sudos.UserName}},
-{{text = 'اضف البوت لمجموعاتك', url="https://t.me/S_a1_bot?startgroup=new"}},  
-} 
+keyboard.inline_keyboard = {{{text = 'اضف البوت لمجموعتك', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},} 
 local function getpro(extra, result, success) 
 if result.photos_[0] then 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(Namebot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -12358,13 +12491,35 @@ ght = math.random(3,200);
 local Text ='تم اختيار المقطع الصوتي لك' 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '❨ M U S L I M 🌝  ❩',url="t.me/M_S_U"}}, 
-{{text = '❨ 𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹 ❩',url="t.me/UU_SD1"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/Ccckkc/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 end
+
+if text == "ثيم" then  
+ght = math.random(1,33);  
+local Text ='الي استخدام ثيم اخر اكتب ثيم'  
+keyboard = {}   
+keyboard.inline_keyboard = {  
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
+}  
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..token..'/sendDocument?chat_id=' .. msg.chat_id_ .. '&document=https://t.me/s281a/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == "استوري" then  
+ght = math.random(1,33);  
+local Text ='تم اختيار استوري ليك ياروحي 🌝💘'  
+keyboard = {}   
+keyboard.inline_keyboard = {  
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
+}  
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/g732a/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
 
 if text == "راسلني" or text == 'كلمني' or text == 'ابعت بف' then 
 rpl = {"عامل اي ياروحي","وحشتيني","هتفضل مش تعبرني كده","اخيارك يحياتي"};
@@ -13567,12 +13722,12 @@ local List = {
 ゠𝚄𝚂𝙴𝚁 𖨈 #username 𖥲 .
 ゠??𝚂𝙶 𖨈 #msgs 𖥲 .
 ゠𝚂𝚃𝙰 𖨈 #stast 𖥲 .
-゠𝙸𝙳 𖨈 #id 𖥲 .
+゠𝙸𝙳 𖨈 `#id` 𖥲 .
 ]],
 [[🦂 ᴜѕᴇʀɴᴀᴍᴇ ➥• #username .
 🦂ᴍѕɢѕ ➥• #msgs .
 🦂 ѕᴛᴀᴛѕ ➥• #stast .
-🦂 ʏᴏᴜʀ ɪᴅ ➥• #id  .
+🦂 ʏᴏᴜʀ ɪᴅ ➥• `#id`  .
 🦂ᴇᴅɪᴛ ᴍsɢ ➥• #edit .
 🦂ᴅᴇᴛᴀɪʟs ➥• #auto . 
 🦂 ɢᴀᴍᴇ ➥• #game .]],
@@ -13586,26 +13741,26 @@ local List = {
 ⚕ 𓆰 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★
 • 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
 • 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
-• 🖤 | 𝑰𝑫 : #id ‌‌‏♕
+• 🖤 | 𝑰𝑫 : `#id` ‌‌‏♕
 • 🖤 | 𝑴𝑺𝑮 : #msgs 𓆊
 ]],
 [[
 ┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 .
 ├ 𝐌𝐒𝐆 𖤱 #msgs 𖦴 .
 ├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 .
-└ 𝐈?? ?? #id 𖦴 .
+└ 𝐈?? ?? `#id` 𖦴 .
 ]],
 [[
 𓄼🇮🇶 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 :#username 
 𓄼🇮🇶 𝑺𝒕𝒂𝒔𝒕 :#stast 
-𓄼🇮🇶 𝒊𝒅 :#id 
+𓄼🇮🇶 𝒊𝒅 :`#id` 
 𓄼🇮🇶 𝑮𝒂𝒎𝒆𝑺 :#game 
 𓄼🇮🇶 𝑴𝒔𝒈𝒔 :#msgs
 ]],
 [[
 - 🇨🇰 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
 - 🇨🇰 𝒔𝒕??𝒔𝒕 . #stast 𖣂.
-- 🇨🇰 𝒊𝒅 . #id 𖣂.
+- 🇨🇰 𝒊𝒅 . `#id` 𖣂.
 - 🇨🇰 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
 - 🇨🇰 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 ]],
@@ -13614,26 +13769,26 @@ local List = {
 𝟓 𝟔 𖡻 #msgs  ࿇🦄
 𝟓 𝟔 𖡻 #auto  ࿇🦄
 𝟓 𝟔 𖡻 #stast  ࿇🦄
-𝟓 𝟔 𖡻 #id  ࿇🦄
+𝟓 𝟔 𖡻 `#id`  ࿇🦄
 ]],
 [[
 金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
 金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
-金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓲𝓭 . `#id` ⸙ 
 金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
 金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 ]],
 [[
 🇯🇵 - 𝄬 username . #username  𓃠
 🇯🇵 - 𝄬 stast . #stast  𓃠
-🇯🇵 - 𝄬 id . #id 𓃠
+🇯🇵 - 𝄬 id . `#id` 𓃠
 🇯🇵 - 𝄬 gmas . #gmas 𓃠
 🇯🇵 - 𝄬 msgs . #msgs  𓃠
 ]],
 [[
 𓄼🇪🇭 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 : #username ♕
 𓄼🇪🇭 𝑺𝒕𝒂𝒔𝒕 : #stast    ☥
-𓄼🇪🇭 𝒊𝒅 : #id ‌‌‏⚚
+𓄼🇪🇭 𝒊𝒅 : `#id` ‌‌‏⚚
 𓄼🇪🇭 𝑮𝒂𝒎𝒆𝑺 : #edit ⚚
 𓄼🇪🇭 𝑴𝒔𝒈𝒔 : #msgs 𓆊
 ]],
@@ -13641,13 +13796,13 @@ local List = {
 ➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
 ➞: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➸💞.
 ➞: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➸💞.
-➞: 𝒊𝒅 𓂅 #id 𓍯➸💞.
+➞: 𝒊𝒅 𓂅 `#id` 𓍯➸💞.
 ]],
 [[
 ☆•𝐮𝐬𝐞𝐫 : #username 𖣬  
 ☆•𝐦𝐬𝐠  : #msgs 𖣬 
 ☆•𝐬𝐭𝐚 : #stast 𖣬 
-☆•𝐢𝐝  : #id 𖣬
+☆•𝐢𝐝  : `#id` 𖣬
 ]],
 [[
 - 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
@@ -13663,7 +13818,7 @@ local List = {
 .𖣂 𝙢𝙨𝙂𝙨 , #msgs
 ]],
 [[
-𖤍 |↶ #id    ꙰🇪🇬.
+𖤍 |↶ `#id`    ꙰🇪🇬.
 𖤍 |↶ #username    ꙰🇪🇬.
 𖤍 |↶ #msgs    ꙰🇪🇬.
 𖤍 |↶ #stast    ꙰🇪🇬.
@@ -13674,34 +13829,34 @@ local List = {
  𝗨𝗦𝗘𝗥 ⟿ #username  « 
  𝗠𝗦𝗚𝗦 ⟿  #msgs  « 
  𝗦𝗧𝗔 ⟿ #stast  « 
- 𝗜𝗗  ⟿ #id  « 
+ 𝗜𝗗  ⟿ `#id`  « 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 🇪🇬≪💎≫ #username • メ
 🇪🇬≪💎≫ #stast  •メ
-🇪🇬≪💎≫ #id  • メ
+🇪🇬≪💎≫ `#id`  • メ
 🇪🇬≪💎≫ #msgs  •メ
 🇪🇬≪💎≫ #game •メ
 🇪🇬𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
  𝚄𝚂𝙴𝚁 𓄹𓄼 #username
- 𝙸𝙳  𓄹𓄼 #id 
+ 𝙸𝙳  𓄹𓄼 `#id` 
  𝚂𝚃𝙰 𓄹𓄼 #stast 
  𝙼𝚂𝙶𝚂𓄹𓄼 #msgs
  𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
 𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
-??➪ : Iᗪ : #id - ❦ . 
+??➪ : Iᗪ : `#id` - ❦ . 
 𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
 𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-- ايديڪ  ⁞ #id 💘 ٬
+- ايديڪ  ⁞ `#id` 💘 ٬
 - يوزرڪ القميل ⁞ #username ?? ٬
 - رسائلڪ  الطيفهہَ ⁞ #msgs 💘 ٬
 - رتبتڪ الحلوه ⁞ #stast  💘٬
@@ -13712,14 +13867,14 @@ local List = {
 𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
 𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
 𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
-𓁷 - 𝙞𝙙 †: #id 𓀀 .
+𓁷 - 𝙞𝙙 †: `#id` 𓀀 .
 𓁷 - 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
 𖡋 𝐔𝐒𝐄 #username 
 𖡋 𝐌𝐒𝐆 #msgs 
 𖡋 𝐒𝐓𝐀 #stast 
-𖡋 𝐈𝐃 #id 
+𖡋 𝐈𝐃 `#id` 
 𖡋 𝐄𝐃𝐈𝐓 #edit
 𖡋 𝗖𝗛 - @UU_SD1 🦂.
 ]],
@@ -13727,7 +13882,7 @@ local List = {
 𖤂 ~ 𝑢𝑠𝑒 #username  𖤐
 𖤂 ~ 𝑚𝑠𝑔 #msgs 𖤐
 𖤂 ~ 𝑠𝑡𝑎 #stast  
-𖤂 ~ 𝑖𝑑 #id 𖤐
+𖤂 ~ 𝑖𝑑 `#id` 𖤐
 𖤂 ~ 𝑒𝑑𝑖𝑡 #edit 𖤐
 𖤂 ~ 𝗖𝗛 - @UU_SD1 🦂.
 ]],
@@ -13736,13 +13891,13 @@ local List = {
 ࿕ ¦• 𝙐𝙎𝙀𝙍  ⟿ #username ༆
  ࿕ ¦• 𝙈𝙎𝙂𝙎   ⟿ #msgs ༆
  ࿕ ¦• 𝙂𝙈𝘼𝙎  ⟿ #stast ༆
- ࿕ ¦• 𝙏𝘿 𝙎𝙏𝘼  ⟿ #id ༆
+ ࿕ ¦• 𝙏𝘿 𝙎𝙏𝘼  ⟿ `#id` ༆
 ••• ••• ••• ••• ••• ••• •••
  ࿕ ¦• 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ► 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 #username 𓃚  ꙰
-► 𝗜𝗗 #id 𓃚 ꙰
+► 𝗜𝗗 `#id` 𓃚 ꙰
 ► 𝗦𝗧𝗔𝗦 #stast 𓃚 ꙰
 ► 𝗠𝗦𝗔𝗚 #msgs 𓃚 ꙰
 ► 𝗖𝗛 - @UU_SD1 🦂.
@@ -13750,7 +13905,7 @@ local List = {
 [[
 -›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
 -›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
--›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙸𝙳 . `#id` 🇪🇬 ꙰ 
 -›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
 -›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   ??𝗛 - @UU_SD1 🇪🇬 ꙰.
@@ -13759,7 +13914,7 @@ local List = {
 - UsEr🇪🇬 ꙰ #username
 - StA🇪🇬 ꙰   #msgs
 - MsGs🇪🇬 ꙰ #stast
-- ID🇪🇬 ꙰  #id
+- ID🇪🇬 ꙰  `#id`
 - 𝗖𝗛 🇪🇬 ꙰  @UU_SD1 💞.
 ]],
 [[
@@ -13767,7 +13922,7 @@ local List = {
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ `#id` 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
@@ -13775,13 +13930,13 @@ local List = {
 - 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
 - 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
 - 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
-- 𓏬 𝐈𝐃 : #id 𓂅 .
+- 𓏬 𝐈𝐃 : `#id` 𓂅 .
 - 𓏬 𝗖?? - @UU_SD1 🦂.
 ]],
 [[
 ᯓ 𝟔𝟔𝟔 𖡋 #username •✟
 ᯓ 𝟔𝟔𝟔𖡋 #stast  •✟
-ᯓ 𝟔𝟔𝟔𖡋 #id  • ✟
+ᯓ 𝟔𝟔𝟔𖡋 `#id`  • ✟
 ᯓ 𝟔𝟔𝟔𖡋 #msgs  •✟ 
 ᯓ 𝟔𝟔𝟔𖡋 #game •✟
 ᯓ 𝟔𝟔𝟔𖡋 𝗖𝗛 - @UU_SD1 🦂.
@@ -13790,34 +13945,34 @@ local List = {
 🦂•𝐮𝐬𝐞𝐫 : #username 𖣬  
 🦂•𝐦𝐬𝐠  : #msgs 𖣬 
 🦂•𝐬𝐭𝐚 : #stast 𖣬 
-🦂•𝐢𝐝  : #id 𖣬
+🦂•𝐢𝐝  : `#id` 𖣬
 🦂•𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 - ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
 - ᴍѕɢѕ ➣ #msgs .
 - ѕᴛᴀᴛѕ ➣ #stast .
-- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
 - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 - ᴜѕʀ: #username ঌ.
 - ᴍѕɢ: #msgs  ঌ.
 - ѕᴛᴀ: #stast  ঌ.
-- ɪᴅ: #id ঌ.
+- ɪᴅ: `#id` ঌ.
 - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 - 𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒 ⟿ #username
 - 𝑚𝑠𝑔𝑠 ⟿ #msgs
-- 𝑖𝑑 ⟿ #id
+- 𝑖𝑑 ⟿ `#id`
 - 𝑒𝑑𝑖𝑡 ⟿ #edit
 - 𝑔𝑎𝑚𝑒 ⟿ #game
 - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ⌔➺: Msgs : #msgs - 🔹.
-⌔➺: ID : #id - 🔹.
+⌔➺: ID : `#id` - 🔹.
 ⌔➺: Stast : #stast -🔹.
 ⌔➺: UserName : #username -🔹.
 ⌔➺: 𝗖𝗛 - @UU_SD1 🦂.
@@ -13827,7 +13982,7 @@ local List = {
 🇪🇬 ꙰  - 𝚞 𝚜𝚎 𝚛 ➟ #username  ❃.
 🇪🇬 ꙰  - 𝚖 𝚜𝚐 𝚜 ➟ #msgs ❃.
 🇪🇬 ꙰  - 𝚐 𝚖 𝚊𝚜  ➟ #stast ❃.
-🇪?? ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ #id ❃.
+🇪🇬 ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ `#id` ❃.
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 ꙰  - 𝗖𝗛 - @UU_SD1 🦂.
 ]],
@@ -13835,25 +13990,25 @@ local List = {
 🌯 ¦✙• 𝐮𝐬𝐞𝐫𝒏𝒂𝒎𝒆 ➢ ⁞  #username 🇪🇬
 🌯 ¦✙• 𝐦𝐬𝐠 ➢ ⁞  #msgs  📝
 🌯 ¦✙• 𝒓𝒂𝒏𝒌 ➢ ⁞ #stast  
-🌯 ¦✙• 𝐢𝐝 𝒔𝒕𝒂 ➢ ⁞ #id  🆔
+🌯 ¦✙• 𝐢𝐝 𝒔𝒕𝒂 ➢ ⁞ `#id`  🆔
 🌯 ¦ 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇪🇬.
 ¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  #msgs  ↝ 🇪🇬.
 ¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇪🇬.
-¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ #id  ↝🇪🇬.
+¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ `#id`  ↝🇪🇬.
 ¦• 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
 ➞: 𝒖??𝒆𝒓𓂅 #username 𓍯➸💞.
 ➞: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➸💞.
-➞: 𝐢𝐝 𓂅 #id 𓍯➸💞.
+➞: 𝐢𝐝 𓂅 `#id` 𓍯➸💞.
 ➞: 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝐼𝐷 𖠀 `#id` . ♡
 ➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
 ➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
 ➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
@@ -13864,20 +14019,20 @@ local List = {
 ▽ ¦❀• USER ➭ ⁞ #username .
 ▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
 ▽ ¦❀• STAT ➬ ⁞ #stast  .
-▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ `#id`  .
 ▽ ¦❀• 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
 • ❉ 𝑺𝑻𝑨 : #stast .
-• ❉ 𝑰𝑫 : #id  ‌‌‏.
+• ❉ 𝑰𝑫 : `#id`  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
 • ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 |USERNAME #username 𓃚
-| YOUR -ID - #id 𓃚
+| YOUR -ID - `#id` 𓃚
 | STAS-#stast ??
  | MSAG - #msgs 𓃚
  | 𝗖𝗛 - @UU_SD1 🦂.
@@ -13885,14 +14040,14 @@ local List = {
 [[
 𝟔𝟔𝟔 𖡋 #username • 𖣰💞
 𝟔𝟔𝟔 𖡋  #stast •??💞
-𝟔𝟔𝟔 𖡋 #id • 𖣰💞
+𝟔𝟔𝟔 𖡋 `#id` • 𖣰💞
 𝟔𝟔𝟔 𖡋 #game • 𖣰💞
 𝟔𝟔𝟔 𖡋 #msgs • 𖣰💞
 𝟔𝟔𝟔 𖡋 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ⌔➺: Msgs : #msgs - 🔹.
-⌔➺: ID : #id - 🔹.
+⌔➺: ID : `#id` - 🔹.
 ⌔➺: Stast : #stast -🔹.
 ⌔➺: UserName : #username -🔹.
 ⌔➺: 𝗖𝗛 - @UU_SD1 🦂.
@@ -13900,7 +14055,7 @@ local List = {
 [[
 🦂 - 𝓾𝓼𝓮𝓻 ➪ #username 🦂.
 🦂 - ??𝓽𝓪𝓼𝓽  ➪ #stast 🦂.
-🦂 - 𝓲𝓭 ➪ #id ⸙🦂.
+🦂 - 𝓲𝓭 ➪ `#id` ⸙🦂.
 🦂 - 𝓰𝓶𝓪𝓼 ➪ #gmas ⸙🦂.
 🦂 - 𝓶𝓼𝓰𝓼 ➪ #msgs 🦂.
 🦂 - 𝗖𝗛 - @UU_SD1 🦂.
@@ -13908,7 +14063,7 @@ local List = {
 [[
 - 𝄬 username . #username ➪🇪🇬
  - 𝄬 stast . #stast ➪🇪🇬
- - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 id . `#id` ➪🇪🇬
  - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @UU_SD1 🦂.
 ]],
@@ -13916,28 +14071,28 @@ local List = {
 ◣: 𝒔𝒕𝒂𓂅 #stast 𓍯➥♡.
 ◣: 𝐮𝐬𝐞𝐫𓂅 #username 𓍯➥♡.
 ◣: 𝒎𝒔𝒈𝒆?? #msgs 𓍯➥♡.
-◣: 𝐢𝐝 𓂅 #id 𓍯➥♡.
+◣: 𝐢𝐝 𓂅 `#id` 𓍯➥♡.
 ◣: 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ↣• USE ➤ #username  ↝🍬.
 ↣• MSG ➤  #msgs  ↝🍬.
 ↣• STA ➤  #stast  ↝🍬.
-↣• iD ➤ #id  ↝🍬.
+↣• iD ➤ `#id`  ↝🍬.
 ↣• 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ➫✿: S #stast 𓍯➟♡.
 ➫✿: U𓂅 #username 𓍯➟♡.
 ➫✿: M𓂅 #msgs 𓍯➟♡.
-➫✿:  I  #id ➟♡.
+➫✿:  I  `#id` ➟♡.
 ➫✿: 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝐮𝐬𝐞𝐫𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
-✶- 𝐢𝐝 𓂅 #id 𓍯↝❃.
+✶- 𝐢𝐝 𓂅 `#id` 𓍯↝❃.
 ✶- 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
@@ -13945,7 +14100,7 @@ local List = {
 
 • 🖤 | 𝑺𝑻𝑨 : #stast
 
-• 🖤 | 𝑰𝑫 :  #id
+• 🖤 | 𝑰𝑫 :  `#id`
 
 • 🖤 | 𝑴𝑺𝑮 : #msgs
 
@@ -13955,14 +14110,14 @@ local List = {
 • USE 𖦹 #username 
 • MSG 𖥳 #msgs  
 • STA 𖦹 #stast 
-• iD 𖥳 #id
+• iD 𖥳 `#id`
 • 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
 - ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
 - ᴍѕɢѕ ➣ #msgs .
 - ѕᴛᴀᴛѕ ➣ #stast .
-- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
 - ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
 - ᴅᴇᴛᴀɪʟs ➣ #auto . 
 -  ɢᴀᴍᴇ ➣ #game .
@@ -13972,7 +14127,7 @@ local List = {
 ⚕𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 : #username
 ⚕𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 : #msgs
 ⚕𝙎𝙏𝘼𝙏𝙎 : #stast
-⚕𝙄𝘿 : #id
+⚕𝙄𝘿 : `#id`
 ⚕𝙅𝙀𝙒𝙀𝙇𝙎 : #game
 ⚕𝘿𝙀𝙑 : #ridha
 ⚕𝗖𝗛 - @UU_SD1 💞.
@@ -13980,7 +14135,7 @@ local List = {
 [[
 • 🦄 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
 • 🦄 | 𝑺𝑻𝑨 : #stast ☥
-• 🦄 | 𝑰𝑫 : #id ‌‌‏♕
+• 🦄 | 𝑰𝑫 : `#id` ‌‌‏♕
 • 🦄 | 𝑴𝑺𝑮 : #msgs 𓆊
 • 🦄 | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 : ⁞
 • 🦄 | 𝗖𝗛 - @UU_SD1 💞.
@@ -13988,13 +14143,13 @@ local List = {
 [[
 • △ | 𝑼𝑬𝑺 : #username ‌‌‏⚚
 • ▽ | 𝑺𝑻𝑨 : #stast ☥
-• ⊠ | 𝑰𝑫 : #id ‌‌‏♕
+• ⊠ | 𝑰𝑫 : `#id` ‌‌‏♕
 • ❏ | 𝑴𝑺𝑮 : #msgs 𓆊
 • ❏ | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 :
 • ❏ | 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-┇iD ➺ #id 💘
+┇iD ➺ `#id` 💘
 ┇UsEr ➺ #username 💕
 ┇MsG ➺ #msgs 🧸 
 ┇StAtE ➺ #stast 🎀
@@ -14005,13 +14160,13 @@ local List = {
 ⚕ 𓆰 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 ★
 • 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
 • 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
-• 🖤 | 𝑰𝑫 : #id ‌‌‏♕
+• 🖤 | 𝑰𝑫 : `#id` ‌‌‏♕
 • 🖤 | 𝑴𝑺𝑮 : #msgs 𓆊
 • 🖤 | 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ┄─━━◉━━─┄
-𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 #id 🇪🇬
+𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 `#id` 🇪🇬
 𖦼 ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
 𖥪 ᴍѕɢѕ 𓄹𓄼 #msgs ✉️
 𖥧 ѕᴛᴀᴛѕ 𓄹𓄼 #stast 👩🏿‍🚒 
@@ -14023,12 +14178,12 @@ local List = {
 [[
 𓄼 ᴜѕᴇ : #username ♕
 ?? ѕᴛᴀ : #stast ☥
-𓄼 ɪᴅ : #id ‌‌‏⚚
+𓄼 ɪᴅ : `#id` ‌‌‏⚚
 𓄼 ᴍѕɢ : #msgs 𓆊
 𓄼 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-• ﮼ايديك  #id 🌻 ٬
+• ﮼ايديك  `#id` 🌻 ٬
 • ﮼يوزرك ➺ #username 🌻 ٬
 • ﮼مسجاتك ➺ #msgs 🌻 ٬
 •  ﮼رتبتك➺ #stast 🌻 ٬
@@ -14036,7 +14191,7 @@ local List = {
 • ﮼ تعين ➺ @UU_SD1 💞.
 ]],
 [[
-‎⿻┊Yor iD 𖠄 #id ٫
+‎⿻┊Yor iD 𖠄 `#id` ٫
 ‌‎⿻┊UsEr 𖠄 #username ٫
 ‌‎⿻┊MsGs 𖠄 #msgs ٫
 ‌‎⿻┊StAtS 𖠄 #stast ٫
@@ -14044,7 +14199,7 @@ local List = {
 ‌‎⿻┊‌‎𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-⌾ | 𝐢𝐝  𓃠 #id .
+⌾ | 𝐢𝐝  𓃠 `#id` .
 ⌾ | 𝐮𝐬𝐞𝐫 𓃠 #username .
 ⌾ | 𝐦𝐬𝐠 𓃠 #msgs .
 ⌾ | 𝐬𝐭𝐚 𓃠 #stast .
@@ -14052,7 +14207,7 @@ local List = {
 ⌾ | 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝐼𝐷 𖠀 `#id` .
 ♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
 ♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
 ♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
@@ -14063,18 +14218,18 @@ local List = {
 •ᑌᔕᗴᖇ- #username 
 •ᔕTᗩ- #stast 
 •ᗰᔕ- #msgs 
-•Iᗪ- #id
+•Iᗪ- `#id`
 •??𝗛 - @UU_SD1 💞.
 ]],
 [[
 • USE ➤ #username  .
 • MSG ➤  #msgs  .
 • STA ➤  #stast  .
-• iD ➤ #id  .
+• iD ➤ `#id`  .
 • 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
-𝐘𝐨𝐮𝐫 𝐈𝐃 ☤🇪🇬- #id 
+𝐘𝐨𝐮𝐫 𝐈𝐃 ☤🇪🇬- `#id` 
 𝐔𝐬𝐞𝐫𝐍𝐚☤🇪🇬- #username 
 𝐒𝐭𝐚𝐬𝐓 ☤🇪🇬- #stast 
 𝐌𝐬𝐠𝐒☤🇪🇬 - #msgs
@@ -14084,12 +14239,12 @@ local List = {
 ⭐️𝖘𝖙𝖆 : #stast ـ🍭
 ⭐️𝖚𝖘𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
 ⭐️𝖒𝖘𝖌𝖘 : #msgs ـ🍭
-⭐️𝖎𝖉 : #id ـ 🍭
+⭐️𝖎𝖉 : `#id` ـ 🍭
 ⭐️𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
 • 🇪🇬 - 𝚄𝚂𝙴?? « #username  🍭
-• 🇪🇬 - 𝙸𝙳 « #id  🍭
+• 🇪🇬 - 𝙸𝙳 « `#id`  🍭
 • 🇪🇬 - 𝙼𝚂𝙶𝚂 « #msgs  🍭
 • 🇪🇬 - 𝚂𝚃𝙰𝚂𝚃 « #stast  🍭
 • 🇪🇬 - 𝗖𝗛 - @UU_SD1 🦂.
@@ -14098,788 +14253,31 @@ local List = {
 • USE ➤  #username .
 • MSG ➤  #msgs .
 • STA ➤  #stast .
-• iD ➤ #id .
+• iD ➤ `#id` .
 • 𝗖𝗛 - @UU_SD1 💞.
 ]],
 [[
 🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
 🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴵᴰ . `#id` 𓃠
 🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
 🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
-🇪🇬 - 𝄬 𝗖𝗛 - @UU_SD1 🦂.
+🇪🇬 - 𝄬 ??𝗛 - @UU_SD1 🦂.
 ]],
 [[
 𓄼🇪🇬 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 : #username ♕
 𓄼🇪🇬 𝑺𝒕𝒂??𝒕 : #stast    ☥
-𓄼🇪🇬 𝐢𝐝 : #id ‌‌‏⚚
+𓄼🇪🇬 𝐢𝐝 : `#id` ‌‌‏⚚
 𓄼🇪🇬 𝑮𝒂𝒎𝒆𝑺 : #edit ⚚
 𓄼🇪🇬 𝑴𝒔𝒈𝒔 : #msgs 𓆊
 𓄼🇪🇬 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 Usᴇʀ Nᴀᴍᴇ ~ #username 
-Yᴏᴜʀ ɪᴅ ~ #id 
+Yᴏᴜʀ ɪᴅ ~ `#id` 
 Sᴛᴀsᴛ ~ #stast 
 Msᴀɢ ~ #msgs
 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-- 🇪🇬 UsErNaMe . #username 𖠲
-- 🇪🇬 StAsT . #stast 𖠲
-- 🇪🇬 Id . #id 𖠲
-- 🇪🇬 GaMeS . #game 𖠲
-- 🇪🇬 MsGs . #msgs 𖠲
-- 🇪🇬 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-🇪🇬 - 𝄬 username . #username  𓃠
-🇪🇬 - 𝄬 stast . #stast  ??
-🇪🇬 - ?? id . #id 𓃠
-🇪🇬 - 𝄬 gmas . #gmas 𓃠
-🇪🇬 - 𝄬 msgs . #msgs  𓃠
-🇪🇬 - 𝄬 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
-金 - 𝓲𝓭 . #id ⸙ 
-金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
-金 - 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-➜𝗨𝗦??𝗥𝗡𝗔𝗠𝗘 : #username
-➜𝗠𝗘𝗦𝗦𝗔𝗚𝗘𝗦 : #msgs
-➜𝗦𝗧𝗔𝗧𝗦 : #stast
-➜𝗜𝗗 : #id
-➜𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-⌔┇Msgs : #msgs.
-⌔┇ID : #id.
-⌔┇Stast : #stast.
-⌔┇UserName : #username.
-⌔┇𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-𝒔𝒕𝒂𓂅 #stast 𓍯
-𝐮𝐬𝐞𝐫𓂅 #username 𓍯
-𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯
-𝐢𝐝 𓂅 #id 𓍯
-𓂅 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-- 🇪🇬 𝐮𝐬𝐞𝐫𝒏𝒂𝒎𝒆 . #username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
-- 🇪🇬 𝐢𝐝 . #id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
-- 🇪🇬 𝐦𝐬𝐠 . #msgs 𖣂.
-- 🇪🇬 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
-ᯓ 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  🖤 ↴
-.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  🖤 ↴
-.𖣂 𝙡𝘿 , #id  🖤 ↴
-.𖣂 𝘼𝙪𝙩𝙤 , #auto  🖤 ↴
-.𖣂 𝙢𝙨𝙂𝙨 , #msgs  🖤 ↴
-.𖣂 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-➥• USE 𖦹 #username - 🇪🇬.
-➥• MSG 𖥳 #msgs  - 🇪🇬.
-➥• STA 𖦹 #stast - 🇪🇬.
-➥• iD 𖥳 #id - 🇪🇬.
-➥• 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
-👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
-👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
-👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
-👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
-👳🏼‍♂ - 𝄬 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
-➮- 𝐮𝐬𝐞𝐫𓂅 #username 𓍯. 💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
-➭- 𝐢𝐝 𓂅 #id 𓍯. 💕
-➭- 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-𓄼 ᴜѕᴇ : #username ♕
-𓄼 ѕᴛᴀ : #stast  ☥
-𓄼 ɪᴅ : #id ‌‌‏⚚
-𓄼 ᴍѕɢ : #msgs 𓆊 
-𓐀 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𓀃.
-𓄼 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
-𝐓𝐓• 𝐌𝐬𝐠𝐒 𖠰 #msgs .
-𝐓𝐓• 𝐔𝐬𝐞??𝐍𝐚 𖠰 #username .
-𝐓𝐓• 𝐒𝐓𝐀𝐒?? 𖠰 #stast .
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
-𝐓𝐓• 𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-𝟓 𝟔 𖡻 #username  ࿇🦄
-𝟓 𝟔 𖡻 #msgs  ࿇🦄
-𝟓 𝟔 𖡻 #auto  ࿇🦄
-𝟓 𝟔 𖡻 #stast  ࿇🦄
-𝟓 𝟔 𖡻 #id  ࿇🦄
-𝟓 𝟔 𖡻 𝗖𝗛 - @UU_SD1 💞.
-]],
-[[
-༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
-• |𝗜𝗗  ⁞ #id
-• |𝗨𝗦𝗘 ⁞ #username
-• |𝗦𝗧𝗔  ⁞ #stast
-• |𝗠𝗦𝗚  ⁞ #edit
-• |𝗔𝗨𝗧𝗢 ⁞ #auto
-—————————————
-𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-┄─━━◉━━─┄
-𖣰𖡻 𖡋𝗜𝗗• #id •𓀎
-𖣰𖡻 𖡋𝗨𝗦𝗘• #username •𓀎
-𖣰𖡻 𖡋𝗦𝗧𝗔• #stast •𓀎
-𖣰𖡻 𖡋𝗠𝗦𝗚• #msgs •𓀎
-𖣰𖡻 𖡋𝗔𝗨𝗧𝗢• #auto •𓀎
-𖣰𖡻 𖡋𝗘𝗗𝗜𝗧• #edit • 𓀎
-┄─━━◉━━─┄
-𝗖𝗛 - @UU_SD1 🦂.
-]],
-[[
-𖤍 |↶ #id    ꙰🇪🇬.
-𖤍 |↶ #username    ꙰🇪🇬.
-?? |↶ #msgs    ꙰🇪🇬.
-𖤍 |↶ #stast    ꙰🇪🇬.
-𖤍 |↶ 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
- 𝗨𝗦𝗘𝗥 ⟿ #username  « 
- 𝗠𝗦??𝗦 ⟿  #msgs  « 
- 𝗦𝗧𝗔 ⟿ #stast  « 
- 𝗜𝗗  ⟿ #id  « 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🇪🇬≪💎≫ #username • メ
-🇪🇬≪💎≫ #stast  •メ
-🇪🇬≪💎≫ #id  • メ
-🇪🇬≪💎≫ #msgs  •メ
-🇪🇬≪💎≫ #game •メ
-🇪🇬𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
- 𝚄𝚂𝙴?? 𓄹𓄼 #username
- 𝙸𝙳  𓄹𓄼 #id 
- 𝚂𝚃𝙰 𓄹𓄼 #stast 
- 𝙼𝚂𝙶𝚂𓄹𓄼 #msgs
- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
-𓅓➪ : Iᗪ : #id - ❦ . 
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
-𓅓➪ : 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- ايديڪ  ⁞ #id 💘 ٬
-- يوزرڪ القميل ⁞ #username 💘 ٬
-- رسائلڪ  الطيفهہَ ⁞ #msgs 💘 ٬
-- رتبتڪ الحلوه ⁞ #stast  💘٬
-- سحڪاتڪ الفول ⁞ #edit 💘 ٬
-- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
-𓁷 - 𝙞𝙙 †: #id 𓀀 .
-𓁷 - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𖡋 𝐔𝐒𝐄 #username 
-𖡋 𝐌𝐒𝐆 #msgs 
-𖡋 𝐒𝐓𝐀 #stast 
-𖡋 𝐈𝐃 #id 
-𖡋 𝐄𝐃??𝐓 #edit
-𖡋 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𖤂 ~ 𝑢𝑠𝑒 #username  𖤐
-𖤂 ~ 𝑚𝑠𝑔 #msgs 𖤐
-𖤂 ~ 𝑠𝑡𝑎 #stast  
-𖤂 ~ 𝑖𝑑 #id 𖤐
-𖤂 ~ 𝑒𝑑𝑖𝑡 #edit 𖤐
-𖤂 ~ 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
--›   𝚂????𝚂𝚃 . #stast 🇪🇬 ꙰
--›   ??𝙳 . #id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
--›   𝙼??𝙶𝚂 . #msgs 🇪🇬 ꙰
--›   𝗖𝗛 - @UU_SD1 🇪🇬 ꙰.
-]],
-[[
-••• ••• ••• ••• ••• ••• ••• 
-࿕ ¦• 𝙐𝙎𝙀𝙍  ⟿ #username ༆
- ࿕ ¦• 𝙈𝙎𝙂??   ⟿ #msgs ༆
- ࿕ ¦• 𝙂𝙈𝘼𝙎  ⟿ #stast ༆
- ࿕ ¦• 𝙏𝘿 𝙎𝙏𝘼  ⟿ #id ༆
-••• ••• ••• ••• ••• ••• •••
- ࿕ ¦• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-► 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 #username 𓃚  ꙰
-► 𝗜?? #id 𓃚 ꙰
-► 𝗦𝗧𝗔𝗦 #stast 𓃚 ꙰
-► 𝗠𝗦𝗔𝗚 #msgs 𓃚 ꙰
-► 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- UsEr🇪🇬 ꙰ #username
-- StA🇪🇬 ꙰   #msgs
-- MsGs🇪🇬 ꙰ #stast
-- ID🇪🇬 ꙰  #id
-- 𝗖𝗛 🇪🇬 ꙰  @UU_SD1 🦂
-]],
-[[
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username ??.
-🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
-🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🇪🇬 - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
-- 𓏬 𝐈𝐃 : #id 𓂅 .
-- 𓏬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-ᯓ 𝟔𝟔𝟔 𖡋 #username •✟
-ᯓ 𝟔𝟔𝟔𖡋 #stast  •✟
-ᯓ 𝟔𝟔𝟔𖡋 #id  • ✟
-ᯓ 𝟔𝟔𝟔𖡋 #msgs  •✟ 
-ᯓ 𝟔𝟔𝟔𖡋 #game •✟
-ᯓ 𝟔𝟔𝟔𖡋 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🦂•𝐮𝐬𝐞𝐫 : #username 𖣬  
-🦂•𝐦𝐬𝐠  : #msgs 𖣬 
-🦂•𝐬𝐭𝐚 : #stast 𖣬 
-🦂•𝐢𝐝  : #id 𖣬
-🦂•𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
-- ᴍѕɢѕ ➣ #msgs .
-- ѕᴛᴀᴛѕ ➣ #stast .
-- ʏᴏᴜʀ ɪᴅ ➣ #id  .
-- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- ᴜѕʀ: #username ঌ.
-- ᴍѕɢ: #msgs  ঌ.
-- ѕᴛᴀ: #stast  ঌ.
-- ɪᴅ: #id ঌ.
-- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- 𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒 ⟿ #username
-- 𝑚𝑠𝑔𝑠 ⟿ #msgs
-- 𝑖𝑑 ⟿ #id
-- 𝑒𝑑𝑖𝑡 ⟿ #edit
-- 𝑔𝑎𝑚𝑒 ⟿ #game
-- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🌯 ¦✙• 𝐮𝐬𝐞𝐫𝒏𝒂𝒎𝒆 ➢ ⁞  #username 🇪🇬
-🌯 ¦✙• 𝐦𝐬𝐠 ➢ ⁞  #msgs  📝
-🌯 ¦✙• 𝒓𝒂𝒏𝒌 ➢ ⁞ #stast  
-🌯 ¦✙• 𝐢𝐝 𝒔𝒕𝒂 ➢ ⁞ #id  🆔
-🌯 ¦ 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🇪🇬 ꙰  - 𝚞 𝚜𝚎 𝚛 ➟ #username  ❃.
-🇪🇬 ꙰  - 𝚖 𝚜𝚐 𝚜 ➟ #msgs ❃.
-🇪🇬 ꙰  - 𝚐 𝚖 𝚊𝚜  ➟ #stast ❃.
-🇪🇬 ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ #id ❃.
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🇪🇬 ꙰  - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-⌔➺: Msgs : #msgs - 🔹.
-⌔➺: ID : #id - 🔹.
-⌔➺: Stast : #stast -🔹.
-⌔➺: UserName : #username -🔹.
-⌔➺: 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇪🇬.
-¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  #msgs  ↝ 🇪🇬.
-¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇪🇬.
-¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ #id  ↝🇪🇬.
-¦• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
-➞: 𝐮𝐬𝐞𝐫𓂅 #username 𓍯➸💞.
-➞: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➸💞.
-➞: ??𝒅 𓂅 #id 𓍯➸💞.
-➞: 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-➼ : 𝐼𝐷 𖠀 #id . ♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
-➼ : 𝑀𝑆𝐺?? 𖠀 #msgs .♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
-➼ : 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-▽ ¦❀• USER ➭ ⁞ #username .
-▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
-▽ ¦❀• STAT ➬ ⁞ #stast  .
-▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
-▽ ¦❀• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast .
-• ❉ 𝑰𝑫 : #id  ‌‌‏.
-• ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
-• ❉ 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-|USERNAME #username 𓃚
-| YOUR -ID - #id 𓃚
-| STAS-#stast 𓃚
- | MSAG - #msgs 𓃚
- | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𝟔𝟔𝟔 𖡋 #username • 𖣰💞
-𝟔𝟔𝟔 𖡋  #stast •𖣰💞
-𝟔??𝟔 𖡋 #id • 𖣰💞
-𝟔𝟔𝟔 𖡋 #game • 𖣰💞
-𝟔𝟔𝟔 𖡋 #msgs • ??💞
-𝟔𝟔𝟔 𖡋 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-⌔➺: Msgs : #msgs - 🔹.
-⌔➺: ID : #id - 🔹.
-⌔➺: Stast : #stast -🔹.
-⌔➺: UserName : #username -🔹.
-⌔➺: 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🦂 - 𝓾𝓼𝓮𝓻 ➪ #username 🦂.
-🦂 - 𝓼𝓽𝓪𝓼𝓽  ➪ #stast 🦂.
-🦂 - 𝓲𝓭 ➪ #id ⸙🦂.
-🦂 - 𝓰𝓶𝓪𝓼 ➪ #gmas ⸙🦂.
-🦂 - 𝓶𝓼??𝓼 ➪ #msgs 🦂.
-🦂 - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-◣: 𝒔𝒕𝒂𓂅 #stast 𓍯➥♡.
-◣: 𝐮𝐬𝐞𝐫𓂅 #username 𓍯➥♡.
-◣: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➥♡.
-◣: 𝐢𝐝 𓂅 #id 𓍯➥♡.
-◣: 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- 𝄬 username . #username ➪🇪🇬
- - 𝄬 stast . #stast ➪🇪🇬
- - 𝄬 id . #id ➪🇪🇬
- - 𝄬 msgs . #msgs ➪🇪🇬
- - 𝄬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-↣• USE ➤ #username  ↝🍬.
-↣• MSG ➤  #msgs  ↝🍬.
-↣• STA ➤  #stast  ↝🍬.
-↣• iD ➤ #id  ↝🍬.
-↣• 𝗖𝗛 - @UU_SD1 🍬
-]],
-[[
-➫✿: S #stast 𓍯➟♡.
-➫✿: U𓂅 #username 𓍯➟♡.
-➫✿: M𓂅 #msgs 𓍯➟♡.
-➫✿:  I  #id ➟♡.
-➫✿: 𝗖?? - @UU_SD1 ♡.
-]],
-[[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
-✶- 𝐮𝐬𝐞𝐫𓂅 #username 𓍯↝❃.
-✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
-✶- 𝐢𝐝 𓂅 #id 𓍯↝❃.
-✶- 𝗖𝗛 - @UU_SD1 ↝❃.
-]],
-[[
-• 🖤 | 𝑼𝑬𝑺 :  #username
-
-• 🖤 | 𝑺𝑻𝑨 : #stast
-
-• 🖤 | 𝑰𝑫 :  #id
-
-• 🖤 | 𝑴𝑺𝑮 : #msgs
-
-• 🖤 | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• USE 𖦹 #username 
-• MSG ?? #msgs  
-• STA 𖦹 #stast 
-• iD 𖥳 #id
-• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🌨↓Use ⇨ #username 🌨
-🌨↓iD ⇨ #id 🌨
-🌨↓Sta ⇨  #stast 🌨
-🌨↓Msg ⇨ #msgs 🌨
-🌨↓NaMe ⇨ #name  🌨
-]],
-[[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
-- ᴍѕɢѕ ➣ #msgs .
-- ѕᴛᴀᴛѕ ➣ #stast .
-- ʏᴏᴜʀ ɪᴅ ➣ #id  .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
-- ᴅᴇᴛᴀɪʟs ➣ #auto . 
--  ɢᴀᴍᴇ ➣ #game .
-- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-⚕𝙐𝙎𝙀𝙍??𝘼𝙈𝙀 : #username
-⚕𝙈𝙀𝙎𝙎??𝙂𝙀𝙎 : #msgs
-⚕𝙎𝙏𝘼𝙏𝙎 : #stast
-⚕𝙄𝘿 : #id
-⚕𝙅𝙀𝙒𝙀𝙇𝙎 : #game
-⚕𝘿𝙀𝙑 : #ridha
-⚕𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• 🦄 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
-• 🦄 | 𝑺𝑻𝑨 : #stast ☥
-• 🦄 | 𝑰𝑫 : #id ‌‌‏♕
-• 🦄 | 𝑴𝑺𝑮 : #msgs 𓆊
-• 🦄 | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 : ⁞
-• 🦄 | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• △ | 𝑼𝑬𝑺 : #username ‌‌‏⚚
-• ▽ | 𝑺𝑻𝑨 : #stast ☥
-• ⊠ | 𝑰𝑫 : #id ‌‌‏♕
-• ❏ | 𝑴𝑺𝑮 : #msgs 𓆊
-• ❏ | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 :
-• ❏ | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-┇iD ➺ #id 💘
-┇UsEr ➺ #username 💕
-┇MsG ➺ #msgs 🧸 
-┇StAtE ➺ #stast 🎀
-┇EdIT ➺ #edit  💒
-┇𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
-• 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
-• 🖤 | 𝑰𝑫 : #id ‌‌‏♕
-• 🖤 | 𝑴𝑺𝑮 : #msgs 𓆊
-• 🖤 | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𓄼 ᴜѕᴇ : #username ♕
-𓄼 ѕᴛᴀ : #stast ☥
-𓄼 ɪᴅ : #id ‌‌‏⚚
-𓄼 ᴍѕɢ : #msgs 𓆊
-𓄼 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-‎⿻┊Yor iD 𖠄 #id ٫
-‌‎⿻┊UsEr 𖠄 #username ٫
-‌‎⿻┊MsGs 𖠄 #msgs ٫
-‌‎⿻┊StAtS 𖠄 #stast ٫
-‌‎⿻┊‌‎EdiT 𖠄 #edit ٫
-‌‎⿻┊‌‎𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• ﮼ايديك  #id 🌻 ٬
-• ﮼يوزرك ➺ #username 🌻 ٬
-• ﮼مسجاتك ➺ #msgs 🌻 ٬
-•  ﮼رتبتك➺ #stast 🌻 ٬
-• ﮼تعديلك ➺ #edit 🌻 ٬
-•  تعين ➺ @UU_SD1 🦂
-]],
-[[
-┄─━━◉━━─┄
-𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 #id 🇪🇬
-𖦼 ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
-𖥪 ᴍѕɢѕ 𓄹𓄼 #msgs ✉️
-𖥧 ѕᴛᴀᴛѕ 𓄹𓄼 #stast 👩??‍🚒 
-𖥣 ᴇᴅɪᴛ 𓄹?? #game🙇🏿‍♀💕
-✰ ᴄʜ ᴇʟɪɴ ➣ #edit
-┄─━━◉━━─┄
-✰ 𝗖?? - @UU_SD1 🦂
-]],
-[[
-⌾ | 𝐢𝐝  𓃠 #id .
-⌾ | 𝐮𝐬𝐞𝐫 𓃠 #username .
-⌾ | 𝐦𝐬𝐠 𓃠 #msgs .
-⌾ | 𝐬𝐭𝐚 𓃠 #stast .
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
-⌾ | 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-♡ : 𝐼𝐷 𖠀 #id .
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
-♡ : 𝐸??𝐼𝑇  𖠀 #edit .
-♡ : 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-•ᑌᔕᗴᖇ- #username 
-•ᔕTᗩ- #stast 
-•ᗰᔕ- #msgs 
-•Iᗪ- #id
-•𝗖?? - @UU_SD1 🦂
-]],
-[[
-• USE ➤ #username  .
-• MSG ➤  #msgs  .
-• STA ➤  #stast  .
-• iD ➤ #id  .
-• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𝐘𝐨𝐮𝐫 𝐈𝐃 ☤🇪🇬- #id 
-𝐔𝐬𝐞𝐫𝐍𝐚☤🇪🇬- #username 
-𝐒𝐭𝐚𝐬𝐓 ☤🇪🇬- #stast 
-𝐌𝐬𝐠𝐒☤🇪🇬 - #msgs
-𝗖𝗛☤🇪🇬 - @UU_SD1 🦂
-]],
-[[
-⭐️𝖘𝖙𝖆 : #stast ـ🍭
-⭐️𝖚𝖘𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
-⭐️𝖒𝖘𝖌𝖘 : #msgs ـ🍭
-⭐️𝖎𝖉 : #id ـ 🍭
-⭐️𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• 🇪🇬 - 𝚄𝚂𝙴𝚁 « #username  🍭
-• 🇪🇬 - 𝙸𝙳 « #id  🍭
-• 🇪🇬 - 𝙼𝚂𝙶𝚂 « #msgs  🍭
-• 🇪🇬 - 𝚂𝚃𝙰𝚂𝚃 « #stast  🍭
-• 🇪🇬 - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-• USE ➤  #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
-• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
-🇪🇬 - 𝄬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-➜𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 : #username
-➜𝗠𝗘𝗦𝗦??𝗚𝗘𝗦 : #msgs
-➜𝗦𝗧𝗔𝗧𝗦 : #stast
-➜𝗜𝗗 : #id
-➜𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- 🇪🇬 UsErNaMe . #username 𖠲
-- 🇪?? StAsT . #stast 𖠲
-- 🇪🇬 Id . #id 𖠲
-- 🇪🇬 GaMeS . #game ??
-- 🇪🇬 MsGs . #msgs 𖠲
-- 🇪🇬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-⌔┇Msgs : #msgs.
-⌔┇ID : #id.
-⌔┇Stast : #stast.
-⌔┇UserName : #username.
-⌔┇𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𝒔𝒕𝒂𓂅 #stast 𓍯
-𝐮𝐬𝐞𝐫𓂅 #username 𓍯
-𝒎𝒔??𝒆𓂅 #msgs 𓍯
-𝐢𝐝 𓂅 #id 𓍯
-𓂅 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𓄼🇪🇬 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 : #username ♕
-𓄼??🇬 𝑺𝒕𝒂𝒔𝒕 : #stast    ☥
-𓄼🇪🇬 𝐢𝐝 : #id ‌‌‏⚚
-𓄼🇪🇬 𝑮𝒂𝒎𝒆𝑺 : #edit ⚚
-𓄼🇪🇬 𝑴𝒔𝒈𝒔 : #msgs 𓆊
-𓄼🇪🇬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-Usᴇʀ Nᴀᴍᴇ ~ #username 
-Yᴏᴜʀ ɪᴅ ~ #id 
-Sᴛᴀsᴛ ~ #stast 
-Msᴀɢ ~ #msgs
-𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-➥• USE 𖦹 #username - 🇪??.
-➥• MSG 𖥳 #msgs  - 🇪🇬.
-➥• STA 𖦹 #stast - 🇪??.
-➥• iD 𖥳 #id - 🇪🇬.
-➥• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-🇪🇬 - 𝄬 username . #username  ??
-🇪🇬 - 𝄬 stast . #stast  𓃠
-🇪🇬 - 𝄬 id . #id 𓃠
-🇪🇬 - 𝄬 gmas . #gmas 𓃠
-🇪🇬 - 𝄬 msgs . #msgs  𓃠
-🇪🇬 - 𝄬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  🖤 ↴
-.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  🖤 ↴
-.𖣂 𝙡𝘿 , #id  🖤 ↴
-.𖣂 𝘼𝙪𝙩𝙤 , #auto  🖤 ↴
-.𖣂 𝙢𝙨𝙂𝙨 , #msgs  🖤 ↴
-.𖣂 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-金 - 𝓾??𝓮𝓻????𝓶𝓮 . #username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
-金 - 𝓲𝓭 . #id ⸙ 
-金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
-金 - 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-- 🇪🇬 𝐮𝐬𝐞𝐫𝒏??𝒎𝒆 . #username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
-- 🇪🇬 𝐢𝐝 . #id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
-- 🇪🇬 𝐦𝐬𝐠 . #msgs 𖣂.
-- 🇪🇬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦 . #msgs ??🇬 ꙰
-ᯓ 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
-👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
-👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
-👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
-👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
-👳🏼‍♂ - 𝄬 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
-➮- 𝐮𝐬𝐞𝐫𓂅 #username 𓍯. ??
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
-➭- 𝐢𝐝 𓂅 #id 𓍯. 💕
-➭- 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𓄼 ᴜѕᴇ : #username ♕
-𓄼 ѕᴛᴀ : #stast  ☥
-𓄼 ɪᴅ : #id ‌‌‏⚚
-𓄼 ᴍѕɢ : #msgs 𓆊 
-𓐀 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𓀃.
-𓄼 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
-𝐓𝐓• 𝐌𝐬𝐠𝐒 𖠰 #msgs .
-𝐓𝐓• 𝐔𝐬𝐞𝐫𝐍𝐚 𖠰 #username .
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
-𝐓𝐓• 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-↑↓𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➱ #username  🦂 
-↑↓𝙄𝘿 ➱ #id
-↑↓𝙍𝘼𝙉𝙆 ➱  #stast  🦂 
-↑↓𝙈𝘼𝙎𝙂 ➱ #msgs  🦂 
-↑↓𝗖𝗛 ➯  @UU_SD1  🦂 
-]],
-[[
-𝟓 𝟔 𖡻 #username  ࿇🦄
-𝟓 𝟔 𖡻 #msgs  ࿇🦄
-𝟓 𝟔 𖡻 #auto  ࿇🦄
-𝟓 𝟔 𖡻 #stast  ࿇🦄
-𝟓 𝟔 𖡻 #id  ࿇🦄
-𝟓 𝟔 𖡻 𝗖𝗛 - @UU_SD1 🦂
-]],
-[[
-► 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 #username 𓃚  ꙰
-► 𝗜𝗗 #id 𓃚 ꙰
-► 𝗦𝗧𝗔𝗦 #stast 𓃚 ꙰
-► 𝗠𝗦𝗔𝗚 #msgs 𓃚 ꙰
-► 𝗶𝗗 - @UU_SD1 ☆
-]],
-[[
-- UsEr🇺🇸 ꙰ #username
-- StA🇺🇸 ꙰   #msgs
-- MsGs🇺🇸 ꙰ #stast
-- ID🇺🇸 ꙰  #id
-- 𝗶𝗗 🇺🇸 ꙰  @UU_SD1 ☆
-]],
-[[
-¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇵🇷.
-¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  #msgs  ↝ 🇵🇷.
-¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇵🇷.
-¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ #id  ↝🇵🇷.
-¦• 𝗶𝗗 - @UU_SD1 ☆
-]],
-[[
-- 🇧🇷 UsErNaMe . #username 𖠲
-- 🇧🇷 StAsT . #stast 𖠲
-- 🇧🇷 Id . #id 𖠲
-- 🇧🇷 GaMeS . #game 𖠲
-- 🇧🇷 MsGs . #msgs 𖠲
-- 🇧🇷 𝗖𝗛 - @UU_SD1 ☆
 ]]}
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
@@ -14961,9 +14359,9 @@ if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false 
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..'\n     ꙰🦂• 𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐬𝐭𝐚  '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..' ↝🇧🇷\n     ꙰🦂•??𝐬𝐠  '..Msguser..'.↝🇧🇷\n     ꙰🦂•𝐒𝐭𝐚𝐬  '..Rutba(msg.sender_user_id_,msg.chat_id_)..' ↝🇧🇷\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..' ↝🇧🇷\n    ꙰🦂•𝗖𝗛  @UU_SD1 ↝🇧🇷\n')
+send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..' ↝🇧🇷\n     ꙰🦂•??𝐬𝐠  '..Msguser..'.↝🇧🇷\n     ꙰🦂•𝐒𝐭𝐚𝐬  '..Rutba(msg.sender_user_id_,msg.chat_id_)..' ↝🇧🇷\n     ꙰🦂•𝐢𝐝 `'..msg.sender_user_id_..'` ↝🇧🇷\n    ꙰🦂•𝗖𝗛  @UU_SD1 ↝🇧🇷\n')
 else
-send(msg.chat_id_, msg.id_, '\n 🦂 الصوره ⇜ ليس لديك صور في حسابك'..'[\n    ꙰🦂•𝐮𝐬𝐞𝐫  '..username..'\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
+send(msg.chat_id_, msg.id_, '\n 🦂 الصوره ⇜ ليس لديك صور في حسابك'..'[\n    ꙰🦂•𝐮𝐬𝐞𝐫  '..username..'\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐢𝐝 `'..msg.sender_user_id_..'`\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
 end 
 end
 end
@@ -15336,7 +14734,7 @@ send(msg.chat_id_,msg.id_,"\n* 🦂 لا استطيع البيع اقل من 1 *
 return false 
 end
 if tonumber(database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_)) == tonumber(0) then
-send(msg.chat_id_,msg.id_,' 🦂 ليس لديك نقاط في الالعاب\n 🦂 اذا كنت تريد ربح نقاط \n 🦂 ارسل الالعاب وابدأ اللعب ! ') 
+send(msg.chat_id_,msg.id_,' 🦂 ليس لديك نقاط في الالعاب\n ?? اذا كنت تريد ربح نقاط \n 🦂 ارسل الالعاب وابدأ اللعب ! ') 
 else
 local NUM_GAMES = database:get(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_)
 if tonumber(NUMPY) > tonumber(NUM_GAMES) then
@@ -15835,6 +15233,7 @@ keyboard.inline_keyboard = {
 {{text = 'instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}}, 
 {{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}}, 
 {{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/6&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -15958,7 +15357,7 @@ local Teext =[[
 🦂مرحب بيك في اوامر التفعيل والتعطيل 🦂
 ≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫ 
 🦂اوامر تفعيل وتعطيل
-≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫
+≪━━━━━━𝑩𝑨𝑲𝑨??━━━━━━≫
 🦂اطردني
 🦂صيح
 🦂ضافني
@@ -16850,6 +16249,284 @@ https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id=".
 DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
 local Json_Info = JSON.decode(DRAGON)
 if Json_Info.ok == true and #mem_id == i then
+local Msgs = {}
+Msgs[0] = msg.id_
+msgs_id = msg.id_-1048576
+for i=1 ,(150) do 
+msgs_id = msgs_id+1048576
+table.insert(Msgs,msgs_id)
+end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_})
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_mod(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
+end
+end     
+end
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatAddMembers" then  
+local mem_id = msg.content_.members_  
+local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_) 
+for i=0,#mem_id do  
+if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "del" then   
+DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(DRAGON)
+if Json_Info.ok == true and #mem_id == i then
+local Msgs = {}
+Msgs[0] = msg.id_
+msgs_id = msg.id_-1048576
+for i=1 ,(150) do 
+msgs_id = msgs_id+1048576
+table.insert(Msgs,msgs_id)
+end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_})
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_mod(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
+end
+end     
+end
+end
+if msg.content_.ID == 'MessagePinMessage' then
+if Constructor(msg) then 
+database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,msg.content_.message_id_)
+else
+local Msg_Pin = database:get(bot_id..'Pin:Id:Msg'..msg.chat_id_)
+if Msg_Pin and database:get(bot_id.."lockpin"..msg.chat_id_) then
+PinMessage(msg.chat_id_,Msg_Pin)
+end
+end
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatDeletePhoto" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == 'MessagePinMessage' or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == 'MessageChatChangeTitle' or msg.content_.ID == "MessageChatDeleteMember" then   
+if database:get(bot_id..'lock:tagservr'..msg.chat_id_) then  
+DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
+return false
+end    
+end   
+--------------------------------------------------------------------------------------------------------------
+SourceDRAGON(data.message_,data)
+plugin_Dragon(data.message_)
+--------------------------------------------------------------------------------------------------------------
+if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+if data.username_ then
+database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
+end
+--------------------------------------------------------------------------------------------------------------
+if tonumber(data.id_) == tonumber(bot_id) then
+return false
+end
+end,nil)   
+end
+elseif (data.ID == "UpdateMessageEdited") then
+local msg = data
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
+database:incr(bot_id..'edits'..result.chat_id_..result.sender_user_id_)
+local Text = result.content_.text_
+if database:get(bot_id.."lock_edit_med"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local username = data.username_
+local name = data.first_name_
+local iduser = data.id_
+local users = ('[@'..data.username_..']' or iduser)
+local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
+t = "\n 🦂 شخص ما يحاول تعديل الميديا \n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = " 🦂 لا يوجد ادمن"
+end
+send(msg.chat_id_,0,''..t..'\n≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫\n 🦂 تم التعديل على الميديا\n 🦂 الشخص الي قام بالتعديل\n 🦂 ايدي الشخص ◂ '..result.sender_user_id_..'\n 🦂 معرف الشخص⤌{ '..users..' }') 
+end,nil)
+DeleteMessage(msg.chat_id_,{[0] = msg.message_id_}) 
+end
+local text = result.content_.text_
+if not Mod(result) then
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("[hH][tT][tT][pP][sT]") or text and text:match("[tT][eE][lL][eE][gG][rR][aA].[Pp][Hh]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa].[Pp][Hh]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("(.*)(@)(.*)") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end
+------------------------------------------------------------------------
+if text and text:match("@") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("(.*)(#)(.*)") then
+if database:get(bot_id.."lock:hashtak"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("#") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+local DRAGONAbot = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
+if DRAGONAbot then    
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+if data.username_ ~= false then
+send(msg.chat_id_,0," 🦂 العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n 🦂 ["..DRAGONAbot.."] \n") 
+else
+send(msg.chat_id_,0," 🦂 العضو : {["..data.first_name_.."](T.ME/UU_SD1)}\n 🦂 ["..DRAGONAbot.."] \n") 
+end
+end,nil)   
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end
+------------------------------------------------------------------------
+if text and text:match("/") then
+if database:get(bot_id.."lock:Cmd"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end 
+if text and text:match("(.*)(/)(.*)") then
+if database:get(bot_id.."lock:Cmd"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end
+------------------------------------------------------------------------
+if text then
+local DRAGON1_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
+if DRAGON1_Msg then    
+send(msg.chat_id_, msg.id_," 🦂 "..DRAGON1_Msg)
+DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
+return false
+end
+end
+end
+end,nil)
+------------------------------------------------------------------------
+
+elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
+local list = database:smembers(bot_id.."User_Bot") 
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
+end         
+local list = database:smembers(bot_id..'Chek:Groups') 
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v
+},function(arg,data)
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
+database:srem(bot_id..'Chek:Groups',v)  
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=v,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.code_ and data.code_ == 400 then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id..'Chek:Groups',v)  
+end 
+end,nil)
+end
+
+elseif (data.ID == "UpdateMessageSendSucceeded") then
+local msg = data.message_
+local text = msg.content_.text_
+local Get_Msg_Pin = database:get(bot_id..'Msg:Pin:Chat'..msg.chat_id_)
+if Get_Msg_Pin ~= nil then
+if text == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then;database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_);end;end,nil)   
+elseif (msg.content_.sticker_) then 
+if Get_Msg_Pin == msg.content_.sticker_.sticker_.persistent_id_ then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+if (msg.content_.animation_) then 
+if msg.content_.animation_.animation_.persistent_id_ == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+if (msg.content_.photo_) then
+if msg.content_.photo_.sizes_[0] then
+id_photo = msg.content_.photo_.sizes_[0].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[1] then
+id_photo = msg.content_.photo_.sizes_[1].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[2] then
+id_photo = msg.content_.photo_.sizes_[2].photo_.persistent_id_
+end	
+if msg.content_.photo_.sizes_[3] then
+id_photo = msg.content_.photo_.sizes_[3].photo_.persistent_id_
+end
+if id_photo == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+end
+
+
+end -- end new msg dev.mr sofi 
+end -- end callback dev.mr sofi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+en
 local Msgs = {}
 Msgs[0] = msg.id_
 msgs_id = msg.id_-1048576
