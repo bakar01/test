@@ -293,7 +293,7 @@ return var
 end 
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1706080513) then  
-var = 'المعدل'
+var = 'المبرمج مسلم'
 elseif tonumber(user_id) == tonumber(1180682052) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
@@ -952,6 +952,22 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end
+
+if text == '/start' and DevSoFi(msg) then 
+local Text = '●انت الان المطور الاساسي في البوت \n● سورس بكار\n ●يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/UU_SD1)'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❨ الـمـطـور ❩',url="t.me/"..result.username_}
+},
+{
+{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/Qtdao/24&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
 if text == 'اوامر الاشتراك' then  
 local bl = 'مرحبا بك في اوامر الاشتراك الاجباري..🌚💘'
 local keyboard = {
@@ -1185,10 +1201,24 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = ' ❨ M U S L I M 🌝 ❩ ', url="t.me/M_S_U"}}, 
-{{text = '❨ تواصل السورس ❩',url="t.me/UU_SD_bot"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if text == '⟮قناه الاستوري⟯' then
+local Text = [[
+قناه استوري المبرمج
+
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = ' ❨ قناه الاستوري ❩ ', url="t.me/UU_bh"}}, 
+{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}}, 
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_bh&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == "ضع اسم للبوت" and DevSoFi(msg) then  
@@ -1225,7 +1255,7 @@ else
 tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
 local function taha(extra, taha, success)
 if taha.photos_[0] then
-local Name = ' مطور البوت اهو ياروحي🌝💘  -\n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
+local Name = ' مطور البوت اهو ياروحي🌝💘 \n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -2762,7 +2792,7 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' الـجـروب مـعـطـل مـن قـبـل ياروحي 🌝💘')
 else
-sendText(msg.chat_id_,'\n 🦂 بواسطه ⤌ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 🦂 تـم تـعـطـيـل الـجـروب {'..chat.title_..'}😿💔',msg.id_/2097152/0.5,'md')
+sendText(msg.chat_id_,'\n ?? بواسطه ⤌ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 🦂 تـم تـعـطـيـل الـجـروب {'..chat.title_..'}😿💔',msg.id_/2097152/0.5,'md')
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -11552,7 +11582,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🦂 لا تستطيع استخدام البوت \n  🦂 يرجى الاشتراك بالقناه اولا \n  🦂 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' 🦂 لا تستطيع استخدام البوت \n  ?? يرجى الاشتراك بالقناه اولا \n  🦂 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12488,6 +12518,15 @@ if text and text:match("^قول (.*)$") then
 local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
+if text and text:match("^انطق (.*)$") then   
+local textntk = text:match("^انطق (.*)$")   
+UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(textntk)..'')   
+Antk = JSON.decode(UrlAntk)   
+if UrlAntk.ok ~= false then   
+download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3')    
+local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.chat_id_ ..'" -F "document=@'..''..textntk..'.mp3'..'"' io.popen(curlm) 
+end   
+end
 if text == "غنيلي" and not  database:get(bot_id.."sing:for:me"..msg.chat_id_) then 
 ght = math.random(3,200); 
 local Text ='تم اختيار المقطع الصوتي لك' 
@@ -12511,17 +12550,16 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendDocument?chat_id=' .. msg.chat_id_ .. '&document=https://t.me/s281a/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
-if text == "استوري" then  
-ght = math.random(1,33);  
-local Text ='تم اختيار استوري ليك ياروحي 🌝💘'  
-keyboard = {}   
-keyboard.inline_keyboard = {  
+if text == "استوري" and not  database:get(bot_id.."sing:for:me"..msg.chat_id_) then 
+ght = math.random(4,50); 
+local Text ='تم اختيار استوري ليك ياروحي 🌝💘' 
+keyboard = {}  
+keyboard.inline_keyboard = { 
 {{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
-}  
-local msg_id = msg.id_/2097152/0.5  
+} 
+local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/g732a/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-
 
 if text == "راسلني" or text == 'كلمني' or text == 'ابعت بف' then 
 rpl = {"عامل اي ياروحي","وحشتيني","هتفضل مش تعبرني كده","اخيارك يحياتي"};
@@ -14071,7 +14109,7 @@ local List = {
 ]],
 [[
 ◣: 𝒔𝒕𝒂𓂅 #stast 𓍯➥♡.
-◣: 𝐮??𝐞𝐫𓂅 #username 𓍯➥♡.
+◣: 𝐮𝐬𝐞𝐫𓂅 #username 𓍯➥♡.
 ◣: 𝒎𝒔𝒈𝒆?? #msgs 𓍯➥♡.
 ◣: 𝐢𝐝 𓂅 `#id` 𓍯➥♡.
 ◣: 𝗖𝗛 - @UU_SD1 🦂.
@@ -15360,7 +15398,7 @@ local Teext =[[
 ≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫ 
 🦂اوامر تفعيل وتعطيل
 ≪━━━━━━𝑩𝑨𝑲𝑨??━━━━━━≫
-??اطردني
+🦂اطردني
 🦂صيح
 🦂ضافني
 🦂الرابط 
@@ -15639,7 +15677,7 @@ local Teext =[[
 🦂تفعيل/تعطيل المغادره
 ??مسح الجروبات
 ≪━━━━━━𝑩𝑨𝑲𝑨𝑹━━━━━━≫
-🦂[𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)🦂
+🦂[𝑺𝑶𝑼𝑹𝑪𝑬 ??𝑨𝑲??𝑹](t.me/UU_SD1)🦂
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
