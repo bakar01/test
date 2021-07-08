@@ -865,6 +865,7 @@ end
 if Chat_Type == 'UserBot' then
 if not DevSoFi(msg) then
 if text == '/start' or text == 'العوده'  then  
+local bl = '›'
 local keyboard = {
 {'قـسم الـمـبـرمـجـيـن'},
 {'قـسم الالـعـاب'},
