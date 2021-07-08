@@ -865,7 +865,6 @@ end
 if Chat_Type == 'UserBot' then
 if not DevSoFi(msg) then
 if text == '/start' or text == 'العوده'  then  
-local bl = '●انت الان العضو في البوت \n● سورس بكار\n ●يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/UU_SD1)'
 local keyboard = {
 {'قـسم الـمـبـرمـجـيـن'},
 {'قـسم الالـعـاب'},
@@ -16103,7 +16102,7 @@ keyboard.inline_keyboard = {
 {text = 'مميزات🍁', callback_data="/change-photo"},{text = 'الاوامر🎯', callback_data="/help90"},
 },
 {
-{text = '𝑺𝑶𝑼𝑹𝑪?? 𝑩𝑨𝑲𝑨𝑹', url="t.me/UU_SD1"},
+{text = '𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹', url="t.me/UU_SD1"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
