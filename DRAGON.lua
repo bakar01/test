@@ -13135,7 +13135,7 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.sender_
 local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,' 🦂 ايديه ⇜ '..iduser..'\n 🦂 معرفه ⇜ '..username..'\n 🦂 رتبته ⇜ '..rtp..'\n 🦂 تعديلاته ⇜ '..edit..'\n 🦂 نقاطه ⇜ '..NUMPGAME..'\n 🦂 جهاته ⇜ '..Contact..'\n 🦂 رسائله ⇜ '..Msguser..'')
+send(msg.chat_id_, msg.id_,' ⦁ ايديه ⇜ '..iduser..'\n ⦁ معرفه ⇜ 「'..username..'」\n ⦁ رتبته ⇜ '..rtp..'\n ⦁ تعديلاته ⇜ '..edit..'\n ⦁ نقاطه ⇜ '..NUMPGAME..'\n ⦁ جهاته ⇜ '..Contact..'\n ⦁ رسائله ⇜ 「'..Msguser..'」')
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -13147,7 +13147,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🦂 لا تستطيع استخدام البوت \n  🦂 يرجى الاشتراك بالقناه اولا \n  🦂 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ⦁ لا تستطيع استخدام البوت \n ⦁  يرجى الاشتراك بالقناه اولا \n ⦁  اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13161,14 +13161,16 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.id_) or
 local rtp = Rutba(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
-send(msg.chat_id_, msg.id_,' 🦂 ايديه ⇜('..iduser..')\n 🦂 معرفه ⇜('..username..')\n 🦂 رتبته ⇜('..rtp..')\n 🦂 تعديلاته ⇜('..edit..')\n 🦂 نقاطه ⇜('..NUMPGAME..')\n 🦂 جهاته ⇜('..Contact..')\n 🦂 رسائله ⇜('..Msguser..')')
+send(msg.chat_id_, msg.id_,' ⦁ ايديه ⇜「'..iduser..'」\n ⦁ معرفه ⇜「'..username..'」\n ⦁ رتبته ⇜「'..rtp..'」\n ⦁ تعديلاته ⇜('..edit..')\n ⦁ نقاطه ⇜('..NUMPGAME..')\n ⦁ جهاته ⇜('..Contact..')\n ⦁ رسائله ⇜(「'..Msguser..'」)')
 end,nil)
 else
-send(msg.chat_id_, msg.id_,' 🦂 المعرف غير صحيح ')
+send(msg.chat_id_, msg.id_,' ⦁ المعرف غير صحيح ')
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
+
+
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 🦂 رتبتك في البوت ⤌ '..rtp)
@@ -14366,7 +14368,7 @@ local List = {
 ]],
 [[
 ⭐️𝖘𝖙𝖆 : #stast ـ🍭
-⭐️𝖚𝖘𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
+⭐️𝖚??𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
 ⭐️𝖒𝖘𝖌𝖘 : #msgs ـ🍭
 ⭐️𝖎𝖉 : `#id` ـ 🍭
 ⭐️𝗖𝗛 - @UU_SD1 💞.
@@ -14418,7 +14420,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🦂 لا تستطيع استخدام البوت \n  🦂 يرجى الاشتراك بالقناه اولا \n  🦂 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ⦁ لا تستطيع استخدام البوت \n ⦁  يرجى الاشتراك بالقناه اولا \n ⦁  اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -14450,7 +14452,19 @@ local photps = (sofi.total_count_ or 0)
 local interaction = Total_Msg(Msguser)
 local rtpg = rtpa
 local sofia = {
-"..",
+	
+"يتي القمر نزل الارض يعمل اي🥺",
+
+"صورتك عفنت غيرها بقي....🤓🧡",
+
+"اي يعم القمر دا ملاك يجدعان...🥺💕",
+
+"اي الصوره المفنه دي يعم....😜",
+
+"هوا الي مجننا هوا هوا القمر هوا....😂🌚",
+
+"صورتك دي ولا صورت القمر.....🌚💌",
+
 }
 local rdphoto = sofia[math.random(#sofia)]
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
@@ -14462,6 +14476,7 @@ else
 username = 'لا يوجد '
 end
 get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
+get_id_text = get_id_text:gsub('#bio',getbioY) 
 get_id_text = get_id_text:gsub('#id',iduser) 
 get_id_text = get_id_text:gsub('#username',username) 
 get_id_text = get_id_text:gsub('#msgs',Msguser) 
@@ -14476,7 +14491,7 @@ else
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_, '\n     ꙰🦂 ليس لديك صور في حسابك \n['..get_id_text..']')      
+send(msg.chat_id_, msg.id_, '\n     ꙰🦅 ليس لديك صور في حسابك \n['..get_id_text..']')      
 end 
 end
 else
@@ -14486,12 +14501,12 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..'\n     ꙰🦂• 𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐬𝐭𝐚  '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」  ↝💘\n¦• 𝙼𝚂𝙶𝚂↬  「'..Msguser..'」  ↝💘\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」  ↝💘\n¦• 𝙸𝙳↬   「'..msg.sender_user_id_..'」 ↝💘\n¦• 𝙱𝙸𝙾 ↬ 「'..getbioY..'」 ↝💘\n ¦• 𝒄𝒉↬  「@UU_SD1」   ↝💘\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..' ↝🇧🇷\n     ꙰🦂•??𝐬𝐠  '..Msguser..'.↝🇧🇷\n     ꙰🦂•𝐒𝐭𝐚𝐬  '..Rutba(msg.sender_user_id_,msg.chat_id_)..' ↝🇧🇷\n     ꙰🦂•𝐢𝐝 `'..msg.sender_user_id_..'` ↝🇧🇷\n    ꙰🦂•𝗖𝗛  @UU_SD1 ↝🇧🇷\n')
+send(msg.chat_id_, msg.id_,'[\n ¦✙ بيك عزيزي 「'..Name..'」 \n¦• 𝚄𝚂𝙴𝚁 ↬  「'..Name..'」    ↝💘\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」.   ↝💘\n ¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」    ↝💘\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」    ↝💘\n¦• 𝒄𝒉↬   「@UU_SD1」 ↝🇧??\n')
 else
-send(msg.chat_id_, msg.id_, '\n 🦂 الصوره ⇜ ليس لديك صور في حسابك'..'[\n    ꙰🦂•𝐮𝐬𝐞𝐫  '..username..'\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐢𝐝 `'..msg.sender_user_id_..'`\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
+send(msg.chat_id_, msg.id_, '\n ⦁ الصوره ⇜ ليس لديك صور في حسابك'..'[\n¦• 𝚄𝚂𝙴𝚁 ↬ 「'..username..'」\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」\n¦• 𝒄𝒉↬  「@UU_SD1」\n')
 end 
 end
 end
@@ -14499,6 +14514,7 @@ else
 local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
 if get_id_text then
 get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
+get_id_text = get_id_text:gsub('#bio',getbioY) 
 get_id_text = get_id_text:gsub('#id',iduser) 
 get_id_text = get_id_text:gsub('#username',username) 
 get_id_text = get_id_text:gsub('#msgs',Msguser) 
@@ -14509,7 +14525,7 @@ get_id_text = get_id_text:gsub('#game',NUMPGAME)
 get_id_text = get_id_text:gsub('#photos',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..'↝🇧🇷\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'↝🇧🇷\n     ꙰🦂•𝐬𝐭𝐚  '..Rutba(msg.sender_user_id_,msg.chat_id_)..'↝🇧🇷\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'↝🇧🇷\n    ꙰🦂•𝗖𝗛@UU_SD1↝🇧🇷\n')
+send(msg.chat_id_, msg.id_,'[\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」   ↝💘\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」   ↝💘\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」   ↝💘\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」   ↝💘\n¦• 𝒄𝒉↬ 「@UU_SD1」   ↝💘\n')
 end
 end
 
@@ -14525,7 +14541,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🦂 لا تستطيع استخدام البوت \n  🦂 يرجى الاشتراك بالقناه اولا \n  🦂 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ⦁ لا تستطيع استخدام البوت \n ⦁  يرجى الاشتراك بالقناه اولا \n ⦁  اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -14556,7 +14572,19 @@ local photps = (sofi.total_count_ or 0)
 local interaction = Total_Msg(Msguser)
 local rtpg = rtpa
 local sofia = {
-"..",
+	
+"يتي القمر نزل الارض يعمل اي🥺",
+
+"صورتك عفنت غيرها بقي....🤓🧡",
+
+"اي يعم القمر دا ملاك يجدعان...🥺💕",
+
+"اي الصوره المفنه دي يعم....😜",
+
+"هوا الي مجننا هوا هوا القمر هوا....😂🌚",
+
+"صورتك دي ولا صورت القمر.....🌚💌",
+
 }
 local rdphoto = sofia[math.random(#sofia)]
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
@@ -14582,7 +14610,7 @@ else
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_, '\n     ꙰🦂 ليس لديك صور في حسابك \n['..get_id_text..']')      
+send(msg.chat_id_, msg.id_, '\n  ¦✙•  ليس لديك صور في حسابك \n['..get_id_text..']')      
 end 
 end
 else
@@ -14592,12 +14620,12 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」  ↝🦂\n¦• 𝙼𝚂𝙶𝚂↬  「'..Msguser..'」  ↝🦂\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」  ↝🦂\n¦• 𝙸𝙳↬   「'..msg.sender_user_id_..'」 ↝🦂\n¦• 𝙱𝙸𝙾 ↬ 「'..getbioY..'」 ↝🦂\n ¦• 𝒄𝒉↬  「@UU_SD1」   ↝🦂\n')
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」     ↝💘\n¦• 𝙼𝚂𝙶𝚂↬  「'..Msguser..'」     ↝💘\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」     ↝💘\n¦• 𝙸𝙳↬   「'..msg.sender_user_id_..'」    ↝💘\n¦• 𝒄𝒉↬  「@UU_SD1」     ↝💘\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n ¦✙ بيك عزيزي 「'..Name..'」 \n¦• 𝚄𝚂𝙴𝚁 ↬  「'..Name..'」    ↝🦂\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」.   ↝🦂\n ¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」    ↝🦂\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」    ↝🦂\n¦• 𝒄𝒉↬   「@UU_SD1」 ↝🇧??\n')
+send(msg.chat_id_, msg.id_,'[\n ¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」    ↝💘\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」.   ↝💘\n ¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」    ↝💘\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」    ↝💘\n¦• 𝒄𝒉↬   「@UU_SD1」    ↝💘\n')
 else
-send(msg.chat_id_, msg.id_, '\n 🦂 الصوره ⇜ ليس لديك صور في حسابك'..'[\n    ꙰🦂•𝐮𝐬𝐞𝐫  '..username..'\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
+send(msg.chat_id_, msg.id_, '\n ⦁ الصوره ⇜ ليس لديك صور في حسابك'..'[\n¦• 𝚄𝚂𝙴𝚁 ↬ 「'..username..'」\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」\n¦• 𝒄𝒉↬  「@UU_SD1」\n')
 end 
 end
 end
@@ -14615,7 +14643,7 @@ get_id_text = get_id_text:gsub('#game',NUMPGAME)
 get_id_text = get_id_text:gsub('#photos',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..'↝🇧🇷\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'↝🇧🇷\n     ꙰🦂•𝐬𝐭𝐚  '..Rutba(msg.sender_user_id_,msg.chat_id_)..'↝🇧🇷\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'↝🇧🇷\n    ꙰🦂•𝗖𝗛@UU_SD1↝🇧🇷\n')
+send(msg.chat_id_, msg.id_,'[\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」   ↝💘\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」   ↝💘\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」   ↝💘\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」   ↝💘\n¦• 𝒄𝒉↬ 「@UU_SD1」   ↝💘\n')
 end
 end
 
