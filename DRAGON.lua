@@ -10879,6 +10879,19 @@ database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_u
 return false
 end
 end
+if text == "تفعيل نسبه جمالي" or text == 'تفعيل جمالي' then
+if Constructor(msg) then  
+database:set(bot_id.."pp_photo:status"..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_," ⦁ تم تفعيل نسبه جمالك") 
+return false  
+end
+end
+if text == "تعطيل جمالي" or text == 'تعطيل نسبه جمالي' then
+if Constructor(msg) then  
+database:del(bot_id.."pp_photo:status"..msg.chat_id_) 
+send(msg.chat_id_, msg.id_," ⦁ تم تعطيل نسبه جمالك") 
+return false end
+end
 if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
 if Mod(msg) then  
 database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
@@ -12950,7 +12963,7 @@ end
 end
 
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'بكار').." غادر" or text == 'غادر' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'بكار').." كسم البوت غادر" or text == 'كسمك غادر مشحوار' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,'※ تم مغادرة المجموعه') 
@@ -13503,6 +13516,9 @@ end
 send(msg.chat_id_, msg.id_,first_name..'\n'..last_name) 
 end,nil)
 end 
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
 if text == 'ايديي' then
 send(msg.chat_id_, msg.id_,' 🦂 ايديك ⤌ '..msg.sender_user_id_)
 end
@@ -13788,6 +13804,22 @@ Text = '\n 🦂 بالتاكيد تم تعطيل امر اطردني مفيش خ
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
+
+if text == "نسبه جمالي" or text == "جمالي"   then
+local my_ph = database:get(bot_id.."pp_photo:status"..msg.chat_id_)
+if not my_ph then
+send(msg.chat_id_, msg.id_," ⦁اكتب تفعيل نسبه جمالي") 
+return false  
+end
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," ⦁نسبه جمالك هيا ⇜ %"..result.total_count_.." يختي قمر يجدعان 🌚💕", msg.id_, msg.id_, "md")
+else
+send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك', 1, 'md')
+  end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
+end
+
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
 if not my_ph then
@@ -14400,6 +14432,7 @@ rtpa = 'مشرف'
 elseif da.status_.ID == "ChatMemberStatusMember" then 
 rtpa = 'عضو'
 end
+local getbioY = getbio(msg.sender_user_id_)
 local Msguser = tonumber(database:get(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) or 1) 
 local nummsggp = tonumber(msg.id_/2097152/0.5)
 local nspatfa = tonumber(Msguser / nummsggp * 100)
@@ -14559,10 +14592,10 @@ else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n    ꙰🦂•𝐮𝐬𝐞𝐫   '..username..'\n     ꙰🦂• 𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐬𝐭𝐚  '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」  ↝🦂\n¦• 𝙼𝚂𝙶𝚂↬  「'..Msguser..'」  ↝🦂\n¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」  ↝🦂\n¦• 𝙸𝙳↬   「'..msg.sender_user_id_..'」 ↝🦂\n¦• 𝙱𝙸𝙾 ↬ 「'..getbioY..'」 ↝🦂\n ¦• 𝒄𝒉↬  「@UU_SD1」   ↝🦂\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n    ꙰🦂•𝐮??𝐞𝐫   '..username..' ↝🇧🇷\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'.↝🇧🇷\n     ꙰🦂•𝐒𝐭𝐚𝐬  '..Rutba(msg.sender_user_id_,msg.chat_id_)..' ↝🇧🇷\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..' ↝🇧🇷\n    ꙰🦂•𝗖𝗛  @UU_SD1 ↝🇧🇷\n')
+send(msg.chat_id_, msg.id_,'[\n ¦✙ بيك عزيزي 「'..Name..'」 \n¦• 𝚄𝚂𝙴𝚁 ↬  「'..Name..'」    ↝🦂\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」.   ↝🦂\n ¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」    ↝🦂\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」    ↝🦂\n¦• 𝒄𝒉↬   「@UU_SD1」 ↝🇧??\n')
 else
 send(msg.chat_id_, msg.id_, '\n 🦂 الصوره ⇜ ليس لديك صور في حسابك'..'[\n    ꙰🦂•𝐮𝐬𝐞𝐫  '..username..'\n     ꙰🦂•𝐦𝐬𝐠  '..Msguser..'\n     ꙰🦂•𝐢𝐝 '..msg.sender_user_id_..'\n    ꙰🦂•𝗖𝗛 @UU_SD1\n')
 end 
