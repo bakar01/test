@@ -370,6 +370,24 @@ Var = false
 end
 return Var
 end
+function getcustom(msg,scc)
+local var = "لايوجد"
+Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..scc.sender_user_id_)
+GeId = JSON.decode(Ge)
+if GeId.result.custom_title then
+var = GeId.result.custom_title
+end
+return var
+end
+function getbio(User)
+local var = "لايوجد"
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchat?chat_id="..User)
+data = json:decode(url)
+if data.result.bio then
+var = data.result.bio
+end
+return var
+end
 function AddChannel(User)
 local var = true
 if database:get(bot_id..'add:ch:id') then
@@ -494,7 +512,7 @@ else
 send(msg.chat_id_, msg.id_,"🦂 الحساب محذوف يرجى استخدام الامر بصوره صحيحه")
 end
 end,nil)   
-end 
+end  
 function Total_Msg(msgs)  
 local DRAGON_Msg = ''  
 if msgs < 100 then 
@@ -11868,7 +11886,7 @@ end
 if text == ""..(database:get(bot_id..'Name:Bot') or 'بكار').."" then  
 Namebot = (database:get(bot_id..'Name:Bot') or 'بكار')
 local DRAGON_Msg = {
-'ننعم يروحي 😻💙',
+'نعم يروحي 😻?',
 'نعم يا قلب  '..Namebot..'',
 'عاوز اي من '..Namebot..'',
 'دوختو  '..Namebot..'',
@@ -11882,10 +11900,25 @@ local DRAGON_Msg = {
 'ياض خش نام 😂',
 'انا '..Namebot..' احسن البوتات 🤩♥️',
 'نعم'
+} 
+Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
+local msg_id = msg.id_/2097152/0.5  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'اضف البوت لمجموعتك', url="http://t.me/"..sudos.UserName.."?startgroup=new"}
+},
 }
-send(msg.chat_id_, msg.id_,'['..DRAGON_Msg[math.random(#DRAGON_Msg)]..']') 
-return false
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(Namebot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
+end 
+end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
+
 if text == "بوت" or text == 'البوت' then 
 local Namebot = (database:get(bot_id..'Name:Bot') or 'بكار') 
 local DRAGON_Msg = { 
@@ -13517,6 +13550,10 @@ send(msg.chat_id_, msg.id_,first_name..'\n'..last_name)
 end,nil)
 end 
 
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
+
 if text == 'ايديي' then
 send(msg.chat_id_, msg.id_,' 🦂 ايديك ⤌ '..msg.sender_user_id_)
 end
@@ -14294,7 +14331,7 @@ local List = {
 [[
 ┄─━━◉━━─┄
 𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 `#id` 🇪🇬
-𖦼 ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
+?? ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
 𖥪 ᴍѕɢѕ 𓄹𓄼 #msgs ✉️
 𖥧 ѕᴛᴀᴛѕ 𓄹𓄼 #stast 👩🏿‍🚒 
 𖥣 ᴇᴅɪᴛ 𓄹𓄼 #game🙇🏿‍♀💕
