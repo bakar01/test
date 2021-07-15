@@ -2240,6 +2240,17 @@ TIME_CHECK = database:hget(bot_id.."flooding:settings:"..msg.chat_id_,"floodtime
 end 
 end 
 --------------------------------------------------------------------------------------------------------------
+if text and database:get(bot_id..'lock:mahn'..msg.chat_id_) and not Special(msg) then 
+list = {"سيفي","بحبك","سيفيختك","عير","سيفيخالتك","خرا بالله","تعالي بيف","سيفيخواتكم","حبك","تعالي بف","تعالي بف","كحبه","موااااح","مح","هت مح","ياروحي","متيجي","وحشتيني","وحشتني","روحقلبي","بموتفيكي","دنيتيكلها"}
+for k,v in pairs(list) do
+print(string.find(text,v))
+if string.find(text,v) ~= nil then
+DeleteMessage(msg.chat_id_,{[0] = msg.id_}) 
+return false
+end
+end
+end
+
 if text and database:get(bot_id..'lock:Fshar'..msg.chat_id_) and not Special(msg) then 
 list = {"كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك"}
 for k,v in pairs(list) do
@@ -4583,6 +4594,11 @@ database:set(bot_id..'lock:edit'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' 🦂 بواسطه ⤌ ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'textchuser')..') \n 🦂 تـم قفـل تعديل ')
 end,nil)   
+elseif text == 'قفل المحن' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
+database:set(bot_id..'lock:mahn'..msg.chat_id_,true) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+send(msg.chat_id_, msg.id_,' 🦂  مـن قبـل  ↚ [「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」](T.ME/'..(data.username_ or 'textchuser')..') \n 🦂 تـم قفـل المحن ')
+end,nil)
 elseif text == 'قفل السب' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -4675,6 +4691,11 @@ database:del(bot_id..'lock:edit'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' 🦂 بواسطه ⤌ ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'textchuser')..') \n 🦂 تـم فـتح تعديل ')
 end,nil)   
+elseif text == 'فتح المحن' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
+database:del(bot_id..'lock:mahn'..msg.chat_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+send(msg.chat_id_, msg.id_,' 🦂  مـن قبـل  ↚ [「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」](T.ME/'..(data.username_ or 'textchuser')..') \n 🦂 تـم فـتح المحن ')
+end,nil)
 elseif text == 'فتح السب' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:del(bot_id..'lock:Fshar'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -5664,7 +5685,7 @@ local UU_SD1 = database:get(bot_id..'text:ch:user')
 if UU_SD1 then
 send(msg.chat_id_, msg.id_,'['..UU_SD1..']')
 else
-send(msg.chat_id_, msg.id_,' 🌛 لا تستطيع استخدام البوت \n  🌛 يرجى الاشتراك بالقناه اولا \n  🌛 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ?? لا تستطيع استخدام البوت \n  🌛 يرجى الاشتراك بالقناه اولا \n  🌛 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
