@@ -1096,7 +1096,7 @@ tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
 end     
-tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 🍻
+tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
 if text == 'حظر' or text == 'بلوك' then  
 local Name = '['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..id_user..')'
 local Text = ' 🦂 المستخدم ⤌ '..Name..'\n 🦂 تم حظره من التواصل'
@@ -3961,7 +3961,7 @@ local TWEET_Msg = {
 "‏ ‏: رغبتي في مُعانقتك عميقة جداً .??",
 "ويُرهقني أنّي مليء بما لا أستطيع قوله.✨",
 "‏ من مراتب التعاسه إطالة الندم ع شيء إنتهى. 🦂 ",
-"‏ ‏كل العالم يهون بس الدنيا بينا تصفي 💙",
+"‏ ‏كل العالم يهون بس الدنيا بينا تصفي ??",
 "‏ بعض الاِعتذارات يجب أن تُرفَضّ.",
 "‏ ‏تبدأ حياتك محاولاً فهم كل شيء، وتنهيها محاولاً النجاة من كل ما فهمت.",
 "‏ إن الأمر ينتهي بِنا إلى أعتياد أي شيء.",
@@ -15351,7 +15351,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == "تعطيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '?? تم تعطيل حساب العمر')
+send(msg.chat_id_, msg.id_, '🦂 تم تعطيل حساب العمر')
 database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
 end
 if text == "تعطيل حساب العمر" and Manager(msg) then
