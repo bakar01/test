@@ -1096,7 +1096,7 @@ tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
 end     
-tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
+tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 🍻
 if text == 'حظر' or text == 'بلوك' then  
 local Name = '['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..id_user..')'
 local Text = ' 🦂 المستخدم ⤌ '..Name..'\n 🦂 تم حظره من التواصل'
@@ -3249,7 +3249,7 @@ keyboard.inline_keyboard = {
 {{text = '❨ 🌝 اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/M_S_U1/13&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'مين نصبلك' or text == 'عايزه بوت' or text == 'عايز بوت' then
@@ -13361,16 +13361,6 @@ end
 end
 
 if text then 
-list = {'قفل المحن'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, 'اهلا عزيزي تم قفل المحن بنجاح اتمحونوا بف عشان المراره 😹??') 
-return false
-end
-end
-end
-
-if text then 
 list = {'قفل التعريص'}
 for k,v in pairs(list) do
 if string.find(text,v) ~= nil then
@@ -13400,15 +13390,6 @@ end
 end
 end
 
-if text then 
-list = {'فتح المحن'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, 'اهلا عزيزي تم فتح المحن بنجاح') 
-return false
-end
-end
-end
 if text == "حلوه"  or text == "حلو" then
 
 send(msg.chat_id_,msg.id_, '[يحلات عيونك..♥️🦋](t.me/UU_SD1)')
@@ -15370,7 +15351,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == "تعطيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '🦂 تم تعطيل حساب العمر')
+send(msg.chat_id_, msg.id_, '?? تم تعطيل حساب العمر')
 database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
 end
 if text == "تعطيل حساب العمر" and Manager(msg) then
