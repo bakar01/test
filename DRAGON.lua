@@ -172,7 +172,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1706080513,1180682052,1849335561,1936946115}   
+sudo_users = {SUDO,1936946115}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -294,14 +294,8 @@ return false
 end 
 end
 function Can_or_NotCan(user_id,chat_id)
-if tonumber(user_id) == tonumber(1706080513) then  
+if tonumber(user_id) == tonumber(1936946115) then  
 var = true 
-elseif tonumber(user_id) == tonumber(1180682052) then
-var = true  
-elseif tonumber(user_id) == tonumber(1936946115) then
-var = true  
-elseif tonumber(user_id) == tonumber(1849335561) then
-var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then
@@ -339,13 +333,7 @@ return var
 end 
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1706080513) then  
-var = 'مطور'
-elseif tonumber(user_id) == tonumber(1180682052) then  
-var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(1936946115) then  
 var = 'المبرمج مسلم'
-elseif tonumber(user_id) == tonumber(1849335561) then  
-var = 'مالك السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then
@@ -3178,11 +3166,9 @@ local Text = [[
 ┏━━━━━━•⊱𖥔⊰•━━━━━━━┓
 [↝ 𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐬𝐨𝐮𝐫𝐜𝐞 𝐛𝐚𝐤𝐚𝐫](t.me/UU_SD1)
 
+
 [↝ 𝐞𝐥𝐦𝐮𝐬𝐥𝐢𝐦](t.me/S_31_m)
 
-[↝ 𝐛𝐚𝐭𝐨𝐭](t.me/ba_to_t)
-
-[↝ 𝐡𝐚𝐦𝐨](t.me/H_1_0O)
 
 [↝ 𝐜𝐡 𝐛𝐚𝐤𝐚𝐫](t.me/UU_SD1)
 ┗━━━━━━•⊱𖥔⊰•━━━━━━━┛
@@ -15274,7 +15260,7 @@ local List = {
 ▽ ¦❀• 𝗖𝗛 - 「@UU_SD1」 🌕.
 ]],
 [[
-• ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
+• ❉ ??𝑬𝑺 : #username ‌‌‏.
 • ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
@@ -16807,7 +16793,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر الاعضاء ⇊', callback_data="/help6"},{text = 'اوامر المطورين ⇊', callback_data="/help5"},
 },
 {
-{text = 'ااوامر اصحاب الرتب ⇊', callback_data="/help2"},
+{text = 'ااوامر اصحاب الرتب ⇊', callback_data="/help2"},{text = 'اوامر الحمايه ⇊', callback_data="/homelocks"},
 },
 {
 {text = '˹𝑪𝑯˼ ', url="t.me/UU_SD1"},
@@ -17718,7 +17704,7 @@ keyboard.inline_keyboard = {
 {text = 'اوامر الاعضاء ⇊', callback_data="/help6"},{text = 'اوامر المطورين ⇊', callback_data="/help5"},
 },
 {
-{text = 'ااوامر اصحاب الرتب ⇊', callback_data="/help2"},
+{text = 'ااوامر اصحاب الرتب ⇊', callback_data="/help2"},{text = 'اوامر الحمايه ⇊', callback_data="/homelocks"},
 },
 {
 {text = '˹𝑪𝑯˼ ', url="t.me/UU_SD1"},
@@ -18270,6 +18256,909 @@ end
 end     
 end
 end
+-------------------------
+if Text == '/lockdul' and Mod(data) then
+local Textedit = '• تم تعطيل التنزيل '
+redis:set(bot_id..'dw:bot:api'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lock_links' and Mod(data) then
+local Textedit = '• تم تعطيل الرابط '
+redis:del(bot_id..'DRAGON:Link_Group'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockmyphoto' and Mod(data) then
+local Textedit = '• تم تعطيل صورتي '
+redis:set(bot_id..'my_photo:status:bot'..Chat_id,'yazon')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockwelcome' and Mod(data) then
+local Textedit = '• تم تعطيل الترحيب '
+redis:del(bot_id..'DRAGON:Chek:Welcome'..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockrepall' and Mod(data) then
+local Textedit = '• تم تعطيل الردود العامه '
+redis:set(bot_id..'DRAGON:Reply:Sudo'..Chat_id,true)   
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockide' and Mod(data) then
+local Textedit = '• تم تعطيل الايدي '
+redis:set(bot_id..'DRAGON:Lock:Id:Photo'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockidephoto' and Mod(data) then
+local Textedit = '• تم تعطيل الايدي بالصوره '
+redis:set(bot_id..'DRAGON:Lock:Id:Py:Photo'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockkiked' and Mod(data) then
+local Textedit = '• تم تعطيل الحظر '
+redis:set(bot_id..'DRAGON:Lock:Ban:Group'..Chat_id,'true')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locksetm' and Mod(data) then
+local Textedit = '• تم تعطيل الرفع '
+redis:set(bot_id..'DRAGON:ChekiDRG:Seted'..Chat_id,'true')
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockaddme' and Mod(data) then
+local Textedit = '• تم تعطيل ضافني '
+redis:del(bot_id..'Added:Me'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locksehe' and Mod(data) then
+local Textedit = '• تم تعطيل صيح '
+redis:del(bot_id..'Seh:User'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockkikedme' and Mod(data) then
+local Textedit = '• تم تعطيل اطردني '
+redis:set(bot_id..'DRAGON:ChekiDRG:Kick:Me:Group'..Chat_id,true)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockgames' and Mod(data) then
+local Textedit = '• تم تعطيل الالعاب '
+redis:del(bot_id..'DRAGON:Lock:Game:Group'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockrepgr' and Mod(data) then
+local Textedit = '• تم تعطيل الردود '
+redis:set(bot_id..'DRAGON:Reply:Manager'..Chat_id,true)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/unlockdul' and Mod(data) then
+local Textedit = '• تم تفعيل التنزيل '
+redis:del(bot_id..'dw:bot:api'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlock_links' and Mod(data) then
+local Textedit = '• تم تفعيل الرابط '
+redis:set(bot_id..'DRAGON:Link_Group'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockmyphoto' and Mod(data) then
+local Textedit = '• تم تفعيل صورتي '
+redis:del(bot_id..'my_photo:status:bot'..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockwelcome' and Mod(data) then
+local Textedit = '• تم تفعيل الترحيب '
+redis:set(bot_id..'DRAGON:Chek:Welcome'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockrepall' and Mod(data) then
+local Textedit = '• تم تفعيل الردود العامه '
+redis:del(bot_id..'DRAGON:Reply:Sudo'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockide' and Mod(data) then
+local Textedit = '• تم تفعيل الايدي '
+redis:del(bot_id..'DRAGON:Lock:Id:Photo'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockidephoto' and Mod(data) then
+local Textedit = '• تم تفعيل الايدي بالصوره '
+redis:del(bot_id..'DRAGON:Lock:Id:Py:Photo'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockkiked' and Mod(data) then
+local Textedit = '• تم تفعيل الحظر '
+redis:del(bot_id..'DRAGON:Lock:Ban:Group'..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocksetm' and Mod(data) then
+local Textedit = '• تم تفعيل الرفع '
+redis:del(bot_id..'DRAGON:ChekiDRG:Seted'..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockaddme' and Mod(data) then
+local Textedit = '• تم تفعيل ضافني '
+redis:set(bot_id..'Added:Me'..Chat_id,true)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocksehe' and Mod(data) then
+local Textedit = '• تم تفعيل صيح '
+redis:set(bot_id..'Seh:User'..Chat_id,true)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockkikedme' and Mod(data) then
+local Textedit = '• تم تفعيل اطردني '
+redis:del(bot_id..'DRAGON:ChekiDRG:Kick:Me:Group'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockgames' and Mod(data) then
+local Textedit = '• تم تفعيل الالعاب '
+redis:set(bot_id..'DRAGON:Lock:Game:Group'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockrepgr' and Mod(data) then
+local Textedit = '• تم تفعيل الردود '
+redis:del(bot_id..'DRAGON:Reply:Manager'..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/homeaddrem' and Mod(data) then
+local Texti = 'تستطيع تعطيل وتفعيل عبر الازرار'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'تعطيل التنزيل', callback_data="/lockdul"},{text = 'تفعيل التنزيل', callback_data="/unlockdul"},
+},
+{
+{text = 'تعطيل الرابط', callback_data="/lock_links"},{text = 'تفعيل الرابط', callback_data="/unlock_links"},
+},
+{
+{text = 'تعطيل صورتي', callback_data="/lockmyphoto"},{text = 'تفعيل صورتي', callback_data="/unlockmyphoto"},
+},
+{
+{text = 'تعطيل الترحيب', callback_data="/lockwelcome"},{text = 'تفعيل الترحيب', callback_data="/unlockwelcome"},
+},
+{
+{text = 'تعطيل الردود العامه', callback_data="/lockrepall"},{text = 'تفعيل الردود العامه', callback_data="/unlockrepall"},
+},
+{
+{text = 'تعطيل الايدي', callback_data="/lockide"},{text = 'تفعيل الايدي', callback_data="/unlockide"},
+},
+{
+{text = 'تعطيل الايدي بالصوره', callback_data="/lockidephoto"},{text = 'تفعيل الايدي بالصوره', callback_data="/unlockidephoto"},
+},
+{
+{text = 'تعطيل الحظر', callback_data="/lockkiked"},{text = 'تفعيل الحظر', callback_data="/unlockkiked"},
+},
+{
+{text = 'تعطيل الرفع', callback_data="/locksetm"},{text = 'تفعيل الرفع', callback_data="/unlocksetm"},
+},
+{
+{text = 'تعطيل ضافني', callback_data="/lockaddme"},{text = 'تفعيل ضافني', callback_data="/unlockaddme"},
+},
+{
+{text = 'تعطيل صيح', callback_data="/locksehe"},{text = 'تفعيل صيح', callback_data="/unlocksehe"},
+},
+{
+{text = 'تعطيل اطردني', callback_data="/lockkikedme"},{text = 'تفعيل اطردني', callback_data="/unlockkikedme"},
+},
+{
+{text = 'تعطيل الالعاب', callback_data="/lockgames"},{text = 'تفعيل الالعاب', callback_data="/unlockgames"},
+},
+{
+{text = 'تعطيل الردود', callback_data="/lockrepgr"},{text = 'تفعيل الردود', callback_data="/unlockrepgr"},
+},
+{
+{text = 'العوده', callback_data="/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Texti)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/lockjoine' and Mod(data) then
+local Textedit = '• تم قفل الاضافه '
+redis:set(bot_id.."DRAGON:Lock:AddMempar"..Chat_id,"kick")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockchat' and Mod(data) then
+local Textedit = '• تم قفل الدردشه '
+redis:set(bot_id.."DRAGON:Lock:text"..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lock_joine' and Mod(data) then
+local Textedit = '• تم قفل الدخول '
+redis:set(bot_id.."DRAGON:Lock:Join"..Chat_id,"kick")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockbots' and Mod(data) then
+local Textedit = '• تم قفل البوتات '
+redis:set(bot_id.."DRAGON:Lock:Bot:kick"..Chat_id,"del")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locktags' and Mod(data) then
+local Textedit = '• تم قفل الاشعارات '
+redis:set(bot_id.."DRAGON:Lock:tagservr"..Chat_id,true)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockedit' and Mod(data) then
+local Textedit = '• تم قفل التعديل '
+redis:set(bot_id.."DRAGON:Lock:edit"..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locklink' and Mod(data) then
+local Textedit = '• تم قفل الروابط '
+redis:set(bot_id.."DRAGON:Lock:Link"..Chat_id,"del")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockusername' and Mod(data) then
+local Textedit = '• تم قفل المعرفات '
+redis:set(bot_id.."DRAGON:Lock:User:Name"..Chat_id,"del")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locktag' and Mod(data) then
+local Textedit = '• تم قفل التاك '
+redis:set(bot_id.."DRAGON:Lock:hashtak"..Chat_id,"del")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/locksticar' and Mod(data) then
+local Textedit = '• تم قفل الملصقات '
+redis:set(bot_id.."DRAGON:Lock:Sticker"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockgif' and Mod(data) then
+local Textedit = '• تم قفل المتحركات '
+redis:set(bot_id.."DRAGON:Lock:Animation"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockvideo' and Mod(data) then
+local Textedit = '• تم قفل الفيديو '
+redis:set(bot_id.."DRAGON:Lock:Video"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockphoto' and Mod(data) then
+local Textedit = '• تم قفل الصور '
+redis:set(bot_id.."DRAGON:Lock:Photo"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockvoise' and Mod(data) then
+local Textedit = '• تم قفل الاغاني '
+redis:set(bot_id.."DRAGON:Lock:Audio"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockaudo' and Mod(data) then
+local Textedit = '• تم قفل الصوت '
+redis:set(bot_id.."DRAGON:Lock:vico"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockfwd' and Mod(data) then
+local Textedit = '• تم قفل التوجيه '
+redis:set(bot_id.."DRAGON:Lock:forward"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockfile' and Mod(data) then
+local Textedit = '• تم قفل الملفات '
+redis:set(bot_id.."DRAGON:Lock:Document"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockphone' and Mod(data) then
+local Textedit = '• تم قفل الجهات '
+redis:set(bot_id.."DRAGON:Lock:Contact"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockposts' and Mod(data) then
+local Textedit = '• تم قفل الكلايش '
+redis:set(bot_id.."DRAGON:Lock:Spam"..Chat_id,'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockflood' and Mod(data) then
+local Textedit = '• تم قفل التكرار '
+redis:hset(bot_id.."DRAGON:Spam:Group:User"..Chat_id ,"Spam:User",'del')  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockfarse' and Mod(data) then
+local Textedit = '• تم قفل الفارسيه '
+redis:set(bot_id..'lock:Fars'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockfshar' and Mod(data) then
+local Textedit = '• تم قفل السب '
+redis:set(bot_id..'lock:Fshar'..Chat_id,true) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockeDRGlish' and Mod(data) then
+local Textedit = '• تم قفل الانجليزيه '
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/lockinlene' and Mod(data) then
+local Textedit = '• تم قفل الانلاين '
+redis:set(bot_id.."DRAGON:Lock:Inlen"..Chat_id,"del")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/unlockjoine' and Mod(data) then
+local Textedit = '• تم فتح الاضافه '
+redis:del(bot_id.."DRAGON:Lock:AddMempar"..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockchat' and Mod(data) then
+local Textedit = '• تم فتح الدردشه '
+redis:del(bot_id.."DRAGON:Lock:text"..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlock_joine' and Mod(data) then
+local Textedit = '• تم فتح الدخول '
+redis:del(bot_id.."DRAGON:Lock:Join"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockbots' and Mod(data) then
+local Textedit = '• تم فتح البوتات '
+redis:del(bot_id.."DRAGON:Lock:Bot:kick"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocktags' and Mod(data) then
+local Textedit = '• تم فتح الاشعارات '
+redis:del(bot_id.."DRAGON:Lock:tagservr"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockedit' and Mod(data) then
+local Textedit = '• تم فتح التعديل '
+redis:del(bot_id.."DRAGON:Lock:edit"..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocklink' and Mod(data) then
+local Textedit = '• تم فتح الروابط '
+redis:del(bot_id.."DRAGON:Lock:Link"..Chat_id)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockusername' and Mod(data) then
+local Textedit = '• تم فتح المعرفات '
+redis:del(bot_id.."DRAGON:Lock:User:Name"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocktag' and Mod(data) then
+local Textedit = '• تم فتح التاك '
+redis:del(bot_id.."DRAGON:Lock:hashtak"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlocksticar' and Mod(data) then
+local Textedit = '• تم فتح الملصقات '
+redis:del(bot_id.."DRAGON:Lock:Sticker"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockgif' and Mod(data) then
+local Textedit = '• تم فتح المتحركات '
+redis:del(bot_id.."DRAGON:Lock:Animation"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockvideo' and Mod(data) then
+local Textedit = '• تم فتح الفيديو '
+redis:del(bot_id.."DRAGON:Lock:Video"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockphoto' and Mod(data) then
+local Textedit = '• تم فتح الصور '
+redis:del(bot_id.."DRAGON:Lock:Photo"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockvoise' and Mod(data) then
+local Textedit = '• تم فتح الاغاني '
+redis:del(bot_id.."DRAGON:Lock:Audio"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockaudo' and Mod(data) then
+local Textedit = '• تم فتح الصوت '
+redis:del(bot_id.."DRAGON:Lock:vico"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockfwd' and Mod(data) then
+local Textedit = '• تم فتح التوجيه '
+redis:del(bot_id.."DRAGON:Lock:forward"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockfile' and Mod(data) then
+local Textedit = '• تم فتح الملفات '
+redis:del(bot_id.."DRAGON:Lock:Document"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockphone' and Mod(data) then
+local Textedit = '• تم فتح الجهات '
+redis:del(bot_id.."DRAGON:Lock:Contact"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockposts' and Mod(data) then
+local Textedit = '• تم فتح الكلايش '
+redis:del(bot_id.."DRAGON:Lock:Spam"..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockflood' and Mod(data) then
+local Textedit = '• تم فتح التكرار '
+redis:hdel(bot_id.."DRAGON:Spam:Group:User"..Chat_id ,"Spam:User")  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockfarse' and Mod(data) then
+local Textedit = '• تم فتح الفارسيه '
+redis:del(bot_id..'lock:Fars'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockfshar' and Mod(data) then
+local Textedit = '• تم فتح السب '
+redis:del(bot_id..'lock:Fshar'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockeDRGlish' and Mod(data) then
+local Textedit = '• تم فتح الانجليزيه '
+redis:del(bot_id..'lock:Fars'..Chat_id) 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/unlockinlene' and Manager(data) then
+local Textedit = '• تم فتح الانلاين '
+redis:del(bot_id.."DRAGON:Lock:Inlen"..Chat_id)  
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data="/homelocks"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+elseif Text == '/homelocks' and Mod(data) then
+local Texti = 'تستطيع قفل وفتح عبر الازرار'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'قفل الاضافه', callback_data="/lockjoine"},{text = 'فتح الاضافه', callback_data="/unlockjoine"},
+},
+{
+{text = 'قفل الدردشه', callback_data="/lockchat"},{text = 'فتح الدردشه', callback_data="/unlockchat"},
+},
+{
+{text = 'قفل الدخول', callback_data="/lock_joine"},{text = 'فتح الدخول', callback_data="/unlock_joine"},
+},
+{
+{text = 'قفل البوتات', callback_data="/lockbots"},{text = 'فتح البوتات', callback_data="/unlockbots"},
+},
+{
+{text = 'قفل الاشعارات', callback_data="/locktags"},{text = 'فتح الاشعارات', callback_data="/unlocktags"},
+},
+{
+{text = 'قفل التعديل', callback_data="/lockedit"},{text = 'فتح التعديل', callback_data="/unlockedit"},
+},
+{
+{text = 'قفل الروابط', callback_data="/locklink"},{text = 'فتح الروابط', callback_data="/unlocklink"},
+},
+{
+{text = 'قفل المعرفات', callback_data="/lockusername"},{text = 'فتح المعرفات', callback_data="/unlockusername"},
+},
+{
+{text = 'قفل التاك', callback_data="/locktag"},{text = 'فتح التاك', callback_data="/unlocktag"},
+},
+{
+{text = 'قفل الملصقات', callback_data="/locksticar"},{text = 'فتح الملصقات', callback_data="/unlocksticar"},
+},
+{
+{text = 'قفل المتحركه', callback_data="/lockgif"},{text = 'فتح المتحركه', callback_data="/unlockgif"},
+},
+{
+{text = 'قفل الفيديو', callback_data="/lockvideo"},{text = 'فتح الفيديو', callback_data="/unlockvideo"},
+},
+{
+{text = 'قفل الصور', callback_data="/lockphoto"},{text = 'فتح الصور', callback_data="/unlockphoto"},
+},
+{
+{text = 'قفل الاغاني', callback_data="/lockvoise"},{text = 'فتح الاغاني', callback_data="/unlockvoise"},
+},
+{
+{text = 'قفل الصوت', callback_data="/lockaudo"},{text = 'فتح الصوت', callback_data="/unlockaudo"},
+},
+{
+{text = 'قفل التوجيه', callback_data="/lockfwd"},{text = 'فتح التوجيه', callback_data="/unlockfwd"},
+},
+{
+{text = 'قفل الملفات', callback_data="/lockfile"},{text = 'فتح الملفات', callback_data="/unlockfile"},
+},
+{
+{text = 'قفل الجهات', callback_data="/lockphone"},{text = 'فتح الجهات', callback_data="/unlockphone"},
+},
+{
+{text = 'قفل الكلايش', callback_data="/lockposts"},{text = 'فتح الكلايش', callback_data="/unlockposts"},
+},
+{
+{text = 'قفل التكرار', callback_data="/lockflood"},{text = 'فتح التكرار', callback_data="/unlockflood"},
+},
+{
+{text = 'قفل الفارسيه', callback_data="/lockfarse"},{text = 'فتح الفارسيه', callback_data="/unlockfarse"},
+},
+{
+{text = 'قفل السب', callback_data="/lockfshar"},{text = 'فتح السب', callback_data="/unlockfshar"},
+},
+{
+{text = 'قفل الانجليزيه', callback_data="/lockeDRGlish"},{text = 'فتح الانجليزيه', callback_data="/unlockeDRGlish"},
+},
+{
+{text = 'قفل الانلاين', callback_data="/lockinlene"},{text = 'فتح الانلاين', callback_data="/unlockinlene"},
+},
+{
+{text = 'العوده', callback_data="/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Texti)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+
+
+
+
+
+
+
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 local mem_id = msg.content_.members_  
