@@ -13807,7 +13807,7 @@ local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 💘 رتبتك في البوت ← '..rtp)
 end
 
-if tonumber(1936946115) then
+if tonumber(msg.sender_user_id_) == tonumber(1936946115) then
 if text == 'انا مين' then
 local msg_id = msg.id_/2097152/0.5  
 local textt = '[انت المبرمج نن عيني 🥺🤍](t.me/UU_SD1)'
@@ -15521,7 +15521,7 @@ Msᴀɢ ~ #msgs
 🇪🇬𝗖𝗛 - 「@UU_SD1」 🌕
 ]],
 [[
- ????𝙴?? 𓄹𓄼 #username
+ 𝚄??𝙴?? 𓄹𓄼 #username
  𝙸𝙳  𓄹𓄼 #id 
  𝚂𝚃𝙰 𓄹𓄼 #stast 
  𝙼𝚂𝙶𝚂𓄹𓄼 #msgs
