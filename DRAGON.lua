@@ -13807,7 +13807,8 @@ local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 💘 رتبتك في البوت ← '..rtp)
 end
 
-if text == 'انا مين' and tonumber(1936946115) then
+if tonumber(1936946115) then
+if text == 'انا مين' then
 local msg_id = msg.id_/2097152/0.5  
 local textt = '[انت المبرمج نن عيني 🥺🤍](t.me/UU_SD1)'
 keyboard = {} 
@@ -13828,7 +13829,7 @@ end
 end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
 return false
-end
+end end
 
 if text == 'انا مين' and SudoBot(msg) then
 local msg_id = msg.id_/2097152/0.5  
@@ -15074,7 +15075,7 @@ local List = {
 ]],
 [[
 ¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇪??.
-¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  #msgs  ↝ ??🇬.
+¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  #msgs  ↝ 🇪🇬.
 ¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇪🇬.
 ¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ #id  ↝🇪🇬.
 ¦• 𝗖𝗛 - 「@UU_SD1」 🌕.
@@ -15520,7 +15521,7 @@ Msᴀɢ ~ #msgs
 🇪🇬𝗖𝗛 - 「@UU_SD1」 🌕
 ]],
 [[
- 𝚄??𝙴?? 𓄹𓄼 #username
+ ????𝙴?? 𓄹𓄼 #username
  𝙸𝙳  𓄹𓄼 #id 
  𝚂𝚃𝙰 𓄹𓄼 #stast 
  𝙼𝚂𝙶𝚂𓄹𓄼 #msgs
