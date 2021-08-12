@@ -3239,17 +3239,29 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 end
 
 if text == 'المبرمج مسلم' or text == 'المبرمج المسلم' or text == 'المسلم' or text == 'مسلم' then
-local Text = [[
-[المبرمج سمير المسلم لو حبب تتواصل معاه اتبع الزر اللي تحت](t.me/S_31_m)
-
-]]
+local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
+if TEXT_SUDO then 
+send(msg.chat_id_, msg.id_,TEXT_SUDO)
+else
+tdcli_function ({ID = "GetUser",user_id_ = 1936946115,},function(arg,result) 
+local function taha(extra, taha, success)
+if taha.photos_[0] then
+local Name = 'المبرمج \n['..result.first_name_..'](t.me/S_1_1M)\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '˹M U S L I M ˼',url="t.me/S_31_m"}},
-{{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
+{
+{text = '  ❨ '..result.first_name_..'  ❩ ',url="t.me/S_1_1M"},
+},
+{{text = 'اضف البوت الي مجموعتك 🌚💞' ,url="t.me/"..dofile("./kkkklInfo.lua").botUserName.."?startgroup=start"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/sameer_3ssam/5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Name)..'&photo='..taha.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+ end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 1936946115, offset_ = 0, limit_ = 1 }, taha, nil)
+end,nil)
+end
 end
 
 if text == 'قناه السورس' or text == 'قناة السورس' or text == '≪━━━━☩𝑩𝑨𝑲𝑨𝑹☩━━━━≫' then
@@ -13797,15 +13809,102 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 
 
+if tonumber(msg.sender_user_id_) == tonumber(1936946115) then
 if text == 'رتبتي' then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' 💘 رتبتك في البوت ← '..rtp)
+local msg_id = msg.id_/2097152/0.5  
+local textt = '[رتبتك المبرمج مسلم🥺🤍](t.me/UU_SD1)'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName},
+},
+{
+{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+send(msg.chat_id_, msg.id_,textt, 1, 'md') 
+end 
+end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+return false
+end end
+
+if text == 'رتبتي' and SudoBot(msg) then
+local msg_id = msg.id_/2097152/0.5  
+local textt = '[انت مطوري نور عنيا🥺🤍](t.me/UU_SD1)'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName},
+},
+{
+{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+send(msg.chat_id_, msg.id_,textt, 1, 'md') 
+end 
+end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+return false
+end
+
+if text == 'رتبتي' and DevSoFi(msg) then 
+send(msg.chat_id_,msg.id_, '[المطور الاساسي²  😍💚](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and Sudo(msg) then 
+send(msg.chat_id_,msg.id_, '[مطوري الغالي  🌝💘](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and CoSu(msg) then 
+send(msg.chat_id_,msg.id_, '[صاحب الخرابه يواد🌚💘](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and Constructor(msg) then 
+send(msg.chat_id_,msg.id_, '[المنشئ الاساسي عم الناس 🤦‍♂️](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and BasicConstructor(msg) then 
+send(msg.chat_id_,msg.id_, '[ المنشئ روح قلبي😂💘](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and Manager(msg) then 
+send(msg.chat_id_,msg.id_, '[المدير الجامد😹](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and Mod(msg) then 
+send(msg.chat_id_,msg.id_, '[الادمن الموكوس😹 ](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' and Special(msg) then 
+send(msg.chat_id_,msg.id_, '[ المميز حبيبي الكل 😊 ](t.me/UU_SD1)') 
+return false
+end
+
+if text == 'رتبتي' then
+send(msg.chat_id_,msg.id_, '[عضو قميل 🌝💘](t.me/UU_SD1)') 
+return false
 end
 
 if tonumber(msg.sender_user_id_) == tonumber(1936946115) then
 if text == 'انا مين' then
 local msg_id = msg.id_/2097152/0.5  
-local textt = '[انت المبرمج نن عيني 🥺🤍](t.me/UU_SD1)'
+local textt = '[انت المبرمج مسلم نن عيني 🥺🤍](t.me/UU_SD1)'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -13905,253 +14004,6 @@ send(msg.chat_id_,msg.id_, '[ابق تعاله كليوم..😹💔🎶](t.me/UU
 return false
 end
 
-if text == 'هاي' or text == 'هيي' then
-send(msg.chat_id_,msg.id_, '[علي الواي فاي..😺💜](t.me/UU_SD1)') 
-return false
-end
-
-if text then 
-list = {'برايفت'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[خدوني معاكم برايفت والنبي..🥺💜](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'صباح الخير'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[انت الخير ياعمري🌝💘](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'النبي'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[عليه الصلاه والسلام..💛🙂](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'قفل التعريص'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[تم قفل التعريص بنجاح 😹😎](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'جيت'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[لف وارجعع تانيي مشحوار😹💃❤️](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'🙄'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[نزل عينك عيب كده..🌚♥️](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text == "حلوه"  or text == "حلو" then
-
-send(msg.chat_id_,msg.id_, '[يحلات عيونك..♥️🦋](t.me/UU_SD1)')
-return false
-end
-
-if text == 'حبيبيي' or text == 'حبيبي' then
-send(msg.chat_id_,msg.id_, '[اوه ياه 🌝😂](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'حبيبتيي' or text == 'حبيبتي' then
-send(msg.chat_id_,msg.id_, '[اوعه ع الجمدان بقا حبيبتي وشغل عالي 🙈❤️](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'طيب' or text == 'تيب' then
-send(msg.chat_id_,msg.id_, '[فرح خالتك قريب😹💋💃🏻](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'وه' or text == 'وهه' then
-send(msg.chat_id_,msg.id_, '[بسيفلاح يعره مسمعش صوتكك??🙊](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'اي' or text == 'ايي' then
-send(msg.chat_id_,msg.id_, '[جتك اوهه م سامع ولا ايي😹👻](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'نعم' or text == 'نعام' then
-send(msg.chat_id_,msg.id_, '[نعم الله عليك🙂](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'هه' or text == 'ههه' then
-send(msg.chat_id_,msg.id_, '[ضحكه مش حلوه علفكره 😳😂](t.me/UU_SD1)') 
-return false
-end
-
-if text == 'بتحبنيي' or text == 'بتحبني' then
-send(msg.chat_id_,msg.id_, '[وهو القمر ميتحبش ؟؟ ❤️😂](t.me/UU_SD1)') 
-return false
-end
-
-if text == '🙂' or text == '🙂💔' then
-send(msg.chat_id_,msg.id_, '[بحبك متزعلش 😘💘](t.me/UU_SD1)') 
-end
-
-if text == 'حبكك' or text == 'حبك' then
-send(msg.chat_id_,msg.id_, '[حبككك اكترر ❤️](t.me/UU_SD1)') 
-return false
-end
-
-if text then 
-list = {'حصلخير'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[حصلخير اي هيجي منين الخير وانت هنا. 🙂😂](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'حصل'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[حصل حصوله 😹💜](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'💋'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[عايز من ده..💋🥀](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'بف'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[خدوني معاكم بف..🙄💔](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'فتح الخولات'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, 'اهلا عزيزي تم فتح الخولات بنجاح الله يكون ف عون الروم كله') 
-return false
-end
-end
-end
-
-if text then 
-list = {'قفل الشواذ'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_,  'اهلا عزيزي تم قفل الشواذ بنجاح') 
-return false
-end
-end
-end
-
-if text then 
-list = {'فتح الخولات'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, 'اهلا عزيزي تم فتح الخولات بنجاح الله يكون ف عون الروم كله') 
-return false
-end
-end
-end
-
-if text then 
-list = {'قفل الخولات'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, 'اهلا عزيزي تم قفل الخولات بنجاح') 
-return false
-end
-end
-end
-
-if text then 
-list = {'😔'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[متزعلش بحبك..😥♥️](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'بحبك'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[وانا كمان بحبك .🥺❤️](t.me/UU_SD1)') 
-return false
-end
-end
-end
-
-if text then 
-list = {'بيف'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[خدوني معاكم بيف ..🙄💔](t.me/UU_SD1)')
-return false
-end
-end
-end
-if text then 
-list = {'سلام عليكم'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[وعليكم السلام ..🖤🌚](t.me/UU_SD1)') 
-return false
-end
-end
-end
-if text then 
-list = {'سلام عليكم'}
-for k,v in pairs(list) do
-if string.find(text,v) ~= nil then
-send(msg.chat_id_,msg.id_, '[وعليكم السلام ..🖤🌚](t.me/UU_SD1)') 
-return false
-end
-end
-end
 if text == "اسمي"  then 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
 if result.first_name_  then
@@ -14761,7 +14613,7 @@ else
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'[\n ¦• 𝚄𝚂𝙴𝚁 ↬  「'..username..'」 \n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」.  \n ¦• 𝚁𝙰𝙽𝙺↬ 「'..Rutba(msg.sender_user_id_,msg.chat_id_)..'」\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」\n¦• 𝒄𝒉↬   【@UU_SD1】   \n')
 else
-send(msg.chat_id_, msg.id_, '\n ♡ الصوره ⇜ ليس لديك صور في حسابك'..'[\n¦• 𝚄𝚂𝙴𝚁 ↬ 「'..username..'」\n¦• 𝙼𝚂𝙶𝚂↬ 「'..Msguser..'」\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」\n¦• 𝒄𝒉↬  【@UU_SD1】\n')
+send(msg.chat_id_, msg.id_, '\n ♡ الصوره ⇜ ليس لديك صور في حسابك'..'[\n¦• 𝚄𝚂𝙴𝚁 ↬ 「'..username..'」\n¦• ??𝚂𝙶𝚂↬ 「'..Msguser..'」\n¦• 𝙸𝙳↬  「'..msg.sender_user_id_..'」\n¦• 𝒄𝒉↬  【@UU_SD1】\n')
 end 
 end
 end
