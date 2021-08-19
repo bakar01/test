@@ -958,7 +958,7 @@ local Key = {
 send_inline_key(msg.chat_id_,Text,Key)
 end 
 
-if text == '❨ M U S L I M 🌝 ❩' then
+if text == '❨ S A M E E R 🌝 ❩' then
 local Text = 'قسم مطورين السورس لدخول الي حسابتهم'
 local Key = {
 {'⟮قناه الاستوري⟯'},
@@ -3255,7 +3255,7 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '˹𝑪𝑯 𝑩𝑨𝑲𝑨𝑹˼', url="t.me/UU_SD1"},{text = '˹M U S L I M ˼',url="t.me/S_31_m"}},
+{{text = '˹𝑪𝑯 𝑩𝑨𝑲𝑨𝑹˼', url="t.me/UU_SD1"},{text = '˹S A M E E R ˼',url="t.me/S_31_m"}},
 {{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 } 
@@ -3305,20 +3305,8 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/8&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'سمير' or text == 'سمير عصام' then
-local Text = [[
-[المبرمج سمير عصام](t.me/sameer_3ssam)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '❨ 𝗦𝗔𝗠𝗘𝗘𝗥 ❩',url="t.me/sameer_3ssam"}},
-{{text = '❨ اضف البوت لمجموعتك ❩', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/sameer_3ssam/5&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 
-if text ==  'المبرمج سمير' or text == 'المبرمج سمير عصام' then
+if text ==  'المبرمج سمير' or text == 'المبرمج سمير عصام' or text == 'سمير عصام' or text == 'سمير' then
 local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
 if TEXT_SUDO then 
 send(msg.chat_id_, msg.id_,TEXT_SUDO)
@@ -11650,6 +11638,38 @@ send(msg.chat_id_, msg.id_," ✘ تم تعطيل الرابط")
 return false end
 end
 
+if text == 'تعطيل التحقق' and Manager(msg) then   
+    database:del(bot_id..'Alex:nwe:mem:group'..msg.chat_id_) 
+    send(msg.chat_id_, msg.id_,'\n- تم تعطيل التحقق' ) 
+    end
+    if text == 'تفعيل التحقق' and Manager(msg) then  
+    database:set(bot_id..'Alex:nwe:mem:group'..msg.chat_id_,'true') 
+    send(msg.chat_id_, msg.id_,'\n- تم تفعيل التحقق' ) 
+    end 
+    
+    if msg.content_.ID == "MessageChatJoinByLink" and database:get(bot_id..'Alex:nwe:mem:group'..msg.chat_id_) == 'true'then
+    numphoto = {'3','8','9','6'}
+    numphotoid = numphoto[math.random(#numphoto)]
+    local numjoine = (numphotoid + 3)
+        local Texti = '- اختر الاجابة الصحيحة\n'..numphotoid..' + 3 ='
+    local num1 = (5 + numphotoid)
+    local num2 = (7 + numphotoid)
+    local num3 = (1 + numphotoid)
+    
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = num1, callback_data=msg.sender_user_id_.."/lockjoine"},{text = num2, callback_data=msg.sender_user_id_.."/unlockjoine"},
+    },
+    {
+    {text =numjoine, callback_data=msg.sender_user_id_.."/UnKed@"..numjoine..":"..numjoine},{text = num3, callback_data=msg.sender_user_id_.."/unlockjoine"},
+    },
+    }
+    local msg_id = msg.id_/2097152/0.5
+    https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
+    return false
+    end
+    
 
 ---------------------
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
@@ -16551,7 +16571,7 @@ local Text =[[
 🚨 اهلا بك في قسم الاوامر ..↑↓
  اختر الامر الذي تريدها .↑↓
 ده من الازرار بلاسفل . ↓
-╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸
+━━━━━━━━━━━━━━━━
 ❲[𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)❳ 
 ]]
 keyboard = {} 
@@ -16579,7 +16599,7 @@ local Text = [[
 🎮 اهلا بك في قسم الالعاب ..↑↓
  اختر العبه الذي تريدها .↑↓
 ده من الازرار بلاسفل . ↓
-╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸
+━━━━━━━━━━━━━━━━
  ❲[𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)❳ 
 ]]
 keyboard = {} 
@@ -17080,6 +17100,15 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+    if Text and Text:match('(%d+)/UnKed@(%d+):(%d+)') then
+    local ramsesadd = {string.match(Text,"^(%d+)/UnKed@(%d+):(%d+)$")}
+    if tonumber(ramsesadd[2]) == tonumber(ramsesadd[3]) then
+    if tonumber(ramsesadd[1]) == tonumber(data.sender_user_id_) then
+    DeleteMessage(data.chat_id_, {[0] = Msg_id})  
+    https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. data.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+    end
+    end
+    end
 if Text == '/help3' then
 if not Mod(data) then
 local notText = '✘ عذرا الاوامر هذه لا تخصك'
@@ -17462,7 +17491,7 @@ local Teext =[[
 🚨 اهلا بك في قسم الاوامر ..↑↓
  اختر الامر الذي تريدها .↑↓
 ده من الازرار بلاسفل . ↓
-╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸
+━━━━━━━━━━━━━━━━
 ❲[𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)❳ 
 ]]
 keyboard = {} 
@@ -17583,7 +17612,7 @@ local Teext =[[
 🚨 اهلا بك في قسم الاوامر ..↑↓
  اختر الامر الذي تريدها .↑↓
 ده من الازرار بلاسفل . ↓
-╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸
+━━━━━━━━━━━━━━━━
  ❲[𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)❳ 
 ]]
 keyboard = {} 
@@ -17632,7 +17661,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '˹M U S L I M ˼', url="t.me/S_31_m"}}, 
+{{text = '˹S A M E E R ˼', url="t.me/S_31_m"}}, 
 {{text = '˹𝑪𝑯 ˼', url="t.me/UU_SD1"}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 {{text = '◗القائمه الرائسيه◖', callback_data="/add"}},
@@ -17739,7 +17768,7 @@ local Teext =[[
 🎮 اهلا بك في قسم الالعاب ..↑↓
  اختر العبه الذي تريدها .↑↓
 ده من الازرار بلاسفل . ↓
-╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╸
+━━━━━━━━━━━━━━━━
  ❲[𝑩𝑨𝑲𝑨𝑹](t.me/UU_SD1)❳ 
 ]]
 keyboard = {} 
