@@ -334,6 +334,8 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1936946115) then  
 var = 'المبرمج سمير'
+elseif tonumber(user_id) == tonumber(1832695557) then  
+var = 'بنت المبرمج سمير'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then
@@ -1391,11 +1393,11 @@ else
 tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
 local function taha(extra, taha, success)
 if taha.photos_[0] then
-local Name = ' مطور البوت اهو ياروحي🌝💘 \n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}
+{text = ''..result.first_name_..'',url="t.me/"..result.username_}
 },
 {
 {text = 'اضف البوت الي مجموعتك' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"} 
@@ -3244,7 +3246,7 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then 
 local Text = [[ 
 ┏━━━━━━•⊱𖥔⊰•━━━━━━━┓
-[↝ 𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐬𝐨𝐮𝐫𝐜𝐞 𝐛𝐚𝐤𝐚𝐫](t.me/UU_SD1)
+[↝ 𝑾𝑬𝑳𝑪𝑶𝑴𝑬 𝑻𝑶 𝑺𝑶𝑼𝑹𝑪𝑬 𝑩𝑨𝑲𝑨𝑹 ](t.me/UU_SD1)
 
 
 [↝𝑺𝑨𝑴𝑬𝑬𝑹 ](t.me/S_31_m)
@@ -3255,7 +3257,7 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '˹𝑪𝑯 𝑩𝑨𝑲𝑨𝑹˼', url="t.me/UU_SD1"},{text = '˹S A M E E R ˼',url="t.me/S_31_m"}},
+{{text = '˹𝑪𝑯 𝑩𝑨𝑲𝑨𝑹˼', url="t.me/UU_SD1"},{text = '˹S A M E E R ˼',url="t.me/M_S_U"}},
 {{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName}},
 {{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
 } 
@@ -4371,11 +4373,11 @@ else
 tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
 local function taha(extra, taha, success)
 if taha.photos_[0] then
-local Name = ' مطور البوت اهو ياروحي🌝💘 \n['..result.first_name_..'](tg://user?id='..result.id_..')\n'
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')\n'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}
+{text = ''..result.first_name_..'',url="t.me/"..result.username_}
 },
 {
 {text = 'اضف البوت الي مجموعتك' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"} 
@@ -12645,39 +12647,27 @@ end
 end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end
-if text == "بوت" then
-local Namebot = (database:get(bot_id..'Name:Bot') or 'بكار') 
-local DRAGON_Msg = { 
-'اسمي  '..Namebot..' يا قلبي 🤤💚',
-'اسمي '..Namebot..' يا روحي🙈❤️',
-'اسمي  '..Namebot..' يعمري🌚🌹',
-'اسمي  '..Namebot..' يا قمر 🐭🤍',
+if text == "بوت" or text == "يا بوت" or text == "البوت" then
+tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result)
+Namebot = database:get(bot_id..'Name:Bot') or 'بكار'
+local DRAGON_Msg = {
+'اسمي  '..Namebot..' يا قلبي 🥺💕 ',
+'اسمي '..Namebot..' يا روحي💋🌚',
+'اسمي  '..Namebot..' يعمري🙄💕',
+'اسمي  '..Namebot..' يا قمر 🌚💕',
 'اسمي  '..Namebot..' يامزه 🥺❤️',
-'اسمي  '..Namebot..' يعم 😒',
+'اسمي  '..Namebot..' يعم 🥺',
 'مقولت اسمي '..Namebot..' في اي 🙄',
-'اسمي الكيوت '..Namebot..' 🌝💘',
-'اسمي  '..Namebot..' ياحياتي🧸♥️',
-'اسمي  '..Namebot..' يوتكه🙈🍑',
-} 
-Namebot = DRAGON_Msg[math.random(#DRAGON_Msg)] 
-local msg_id = msg.id_/2097152/0.5  
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName},
-},
-{
-{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"},
-},
 }
-local function getpro(extra, result, success) 
-if result.photos_[0] then 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(Namebot).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-else 
-send(msg.chat_id_, msg.id_,Namebot, 1, 'md') 
-end 
-end 
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
+local AY = DRAGON_Msg[math.random(#DRAGON_Msg)]
+local Text = '['..AY..'](t.me/UU_SD1)'
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = ' '..result.first_name_..' ',url="http://t.me/"..sudos.UserName}},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end,nil)
 end
 
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then 
@@ -13933,6 +13923,30 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 return false
 end end
 
+if tonumber(msg.sender_user_id_) == tonumber(1832695557) then
+if text == 'رتبتي' then
+local msg_id = msg.id_/2097152/0.5  
+local textt = '[بنت المبرمج سمير🥺💘](t.me/UU_SD1)'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'الـمـطـور♡', url="http://t.me/"..sudos.UserName},
+},
+{
+{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"},
+},
+}
+local function getpro(extra, result, success) 
+if result.photos_[0] then 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&caption=' .. URL.escape(textt).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+else 
+send(msg.chat_id_, msg.id_,textt, 1, 'md') 
+end 
+end 
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil) 
+return false
+end end
+
 if text == 'رتبتي' and SudoBot(msg) then
 local msg_id = msg.id_/2097152/0.5  
 local textt = '[انت مطوري نور عنيا🥺🤍](t.me/UU_SD1)'
@@ -14872,7 +14886,7 @@ local List = {
  𝚄𝚂𝙴𝚁 𓄹𓄼 #username
  𝙸𝙳  ??𓄼 #id 
  𝚂𝚃𝙰 𓄹𓄼 #stast 
- 𝙼𝚂𝙶𝚂𓄹𓄼 #msgs
+ 𝙼𝚂𝙶𝚂??𓄼 #msgs
  𝗖𝗛 - 「@UU_SD1」 ??.
 ]],
 [[
