@@ -3265,32 +3265,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/UU_SD1/156&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'قناه الاستوري' or text == 'استوري سمير' or text == 'قناه الاستوريهات' or text == 'الاستوريهات' then 
-local Text = [[ 
-قناه الاستوري ياروحي 🌚💘
-]] 
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{{text = '❨ استوري سمير  ❩', url="t.me/S_1_0M"}},
-{{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/9&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == 'تيم سمير' or text == 'تيم' or text == 'متيجي' or text == 'اقوي تيم' then 
-local Text = [[ 
-[متيجي تنضم لتيم سمير اقوي تيم ع التليجرام](t.me/S_1_2M)
-]] 
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{{text = '❨ 𝑻𝑬𝑨𝑴 𝑺𝑨𝑴𝑬𝑬𝑹 ❩', url="t.me/S_1_2M"}},
-{{text = 'اضف البوت الي مجموعتك ♡ ' ,url="t.me/"..dofile("./Bkar.lua").botUserName.."?startgroup=start"}},
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/M_S_U1/10&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
 if text == 'مين نصبلك' or text == 'عايزه بوت' or text == 'عايز بوت' then
 local Text = [[
  ♡ اهلا بك في سورس بكار الجمدان
@@ -3308,7 +3282,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 end
 
 
-if text ==  'المبرمج سمير' or text == 'المبرمج سمير عصام' or text == 'سمير عصام' or text == 'سمير' then
+if text ==  'المبرمج سمير' or text == 'المبرمج سمير عصام' or text == 'سمير عصام' or text == 'سمير' or text == 'سمير عصام' then
 local TEXT_SUD = database:get(bot_id..'Tshake:TEXT_SUDO')
 if TEXT_SUDO then 
 send(msg.chat_id_, msg.id_,TEXT_SUDO)
